@@ -1,0 +1,8 @@
+packer_cache/
+output-vmware-iso/
+*.sh
+.vscode/settings.json
+env/*
+template/*
+_site/*
+*.jekyll-metadata
