@@ -1,0 +1,31 @@
+toc:
+  - title: Introduction
+    subfolderitems:
+      - page: About
+        url: /docs/index
+      - page: Use cases
+        url: /docs/usecases
+  - title: Architecture
+    subfolderitems:
+      - page: Architecture
+        url: /docs/architecture
+      - page: Build VEBA
+        url: /docs/buildappliance
+  - title: Deploy VEBA
+    subfolderitems:
+      - page: Deploy as Appliance
+        url: /docs/deploy-sddc
+      - page: Deploy in Kubernetes Cluster
+        url: /deploy-k8s
+  - title: Functions
+    subfolderitems:
+      - page: Deploy Functions
+        url: /deploy-functions
+      - page: Write Functions
+        url: /write-functions
+  - title: More information
+    subfolderitems:
+      - page: Troubleshooting
+        url: /troubleshooting
+      - page: FAQ
+        url: /FAQ

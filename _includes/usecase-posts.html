@@ -1,0 +1,33 @@
+<div class="row">
+{% for usecase in site.usecases %}
+    <div class="col-xs col-md-4">
+        <div class="card card-light mb-3 mb-md-0 blog-card">
+            <div class="card-body match-height">
+                <div class="post-thumbnail">
+                    {% if usecase.image %}
+                    <img src="{{ usecase.image }}" alt="{{ usecase.title }}" />
+                    {% else %}
+                    <img src="assets/img/{{ site.logo }}" alt="{{ page.title }}" />
+                    {% endif %}
+                </div>
+                <article class="post">
+                    <h5 class="text-center font-weight-medium">
+                        <a href="{{ site.baseurl }}{{ page.url }}" class="post-title">{{ usecase.title }}</a>
+                    </h5>
+                    <div class="post-entry">
+                        {{ usecase.excerpt | strip_html }}
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    {% if limit > 0 and forloop.index >= limit %}
+        {% break %}
+    {% endif %}
+    {% assign row = forloop.index | modulo: 3 %}
+{% if row == 0 %}
+</div>
+<div class="row mt-4">
+{% endif %}
+{% endfor %}
+</div>
