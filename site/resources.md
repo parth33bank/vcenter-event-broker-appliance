@@ -5,7 +5,7 @@ description: Update this
 permalink: /resources
 ---
 
-##Blog posts
+## Blog posts
 - https://rguske.github.io/post/event-driven-interactions-with-vsphere-using-functions-as-a-service/
 - https://octo.vmware.com/vsphere-power-event-driven-automation/
 - https://www.virtuallyghetto.com/2019/11/vcenter-event-broker-appliance-updates-vmworld-fling-community-open-source.html
