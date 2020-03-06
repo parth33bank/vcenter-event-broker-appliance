@@ -11,13 +11,13 @@ hero:
   content: Explore new capabilities through vCenter based event-driven automation. Powerful integrations between datacenter-internal enterprise services and cloud services, for example Slack and Pager Duty, can be created with vCenter Event Broker Appliance out of the box
   cta_link1:
     text: Download & Install
-    url: https://flings.vmware.com/vcenter-event-broker-appliance
+    external_url: https://flings.vmware.com/vcenter-event-broker-appliance
   cta_link2:
     text: Deploy Functions
-    url: https://github.com/vmware-samples/vcenter-event-broker-appliance
-  cta_link3:
+    external_url: https://github.com/vmware-samples/vcenter-event-broker-appliance
+  cta_link3: # ignored
     text: Write Functions
-    url: https://github.com/vmware-samples/vcenter-event-broker-appliance
+    external_url: https://github.com/vmware-samples/vcenter-event-broker-appliance
   promo1:
     icon: /assets/img/vcenter-icon.png
     title: Native vCenter Integration
@@ -37,7 +37,7 @@ secondary_ctas:
     content: Get started in under 30 minutes with our community validated, prebuilt functions
   cta2:
     title: Contribute by writing your own functions
-    url: https://docs.openfaas.com/cli/templates/
+    external_url: https://docs.openfaas.com/cli/templates/
     content: Join our community and start contributing to our growing list of prebuilt functions
 ---
 <div class="home-hero bg-color-{{ site.hero.background-color }}" style="background-image: url('{{ page.hero.banner }}')">
@@ -48,8 +48,17 @@ secondary_ctas:
         <p>{{ page.hero.content }}</p>
       </div>
       <div class="hero-cta mt-4">
-        <a href="{{ page.hero.cta_link1.url }}" class="btn btn-primary mb-3 mb-sm-0">{{ page.hero.cta_link1.text }}</a>
-        <a href="{{ page.hero.cta_link2.url }}" class="btn btn-outline-light">{{ page.hero.cta_link2.text }}</a>
+        {% if page.hero.cta_link1.external_url or size > 0 %}
+          <a href="{{ page.hero.cta_link1.external_url }}" class="btn btn-primary mb-3 mb-sm-0">{{ page.hero.cta_link1.text }}</a>
+        {% else %}
+          <a href="{{ page.hero.cta_link1.url | relative_url }}" class="btn btn-primary mb-3 mb-sm-0">{{ page.hero.cta_link1.text }}</a>
+        {% endif %}
+        {% if page.hero.cta_link2.external_url or size > 0 %}
+          <a href="{{ page.hero.cta_link2.external_url }}" class="btn btn-outline-light">{{ page.hero.cta_link2.text }}</a>
+        {% else %}
+          <a href="{{ page.hero.cta_link2.url | relative_url }}" class="btn btn-outline-light">{{ page.hero.cta_link2.text }}</a>
+        {% endif %}
+        
         <!--<a href="{{ page.hero.cta_link3.url }}" class="btn btn-outline-light">{{ page.hero.cta_link3.text }}</a>-->
       </div>
     </div>
@@ -62,10 +71,12 @@ secondary_ctas:
         <div class="card card-light mb-3 mb-md-0 shadow-sm">
           <div class="card-body match-height">
             <figure>
-              <img src="{{ page.hero.promo1.icon }}" alt="{{ page.hero.promo1.title }}" />
+              <img src="{{ page.hero.promo1.icon | relative_url }}" alt="{{ page.hero.promo1.title }}" />
             </figure>
-            {% if page.hero.promo1.url or size > 0 %}
-            <h5><a href="{{ page.hero.promo1.url }}" class="dark">{{ page.hero.promo1.title }}</a></h5>
+            {% if page.hero.promo1.external_url or size > 0 %}
+            <h5><a href="{{ page.hero.promo1.external_url }}" class="dark">{{ page.hero.promo1.title }}</a></h5>
+            {% elsif page.hero.promo1.url or size > 0 %}
+            <h5><a href="{{ page.hero.promo1.url | relative_url }}" class="dark">{{ page.hero.promo1.title }}</a></h5>
             {% else %}
             <h5>{{ page.hero.promo1.title }}</h5>
             {% endif %}
@@ -77,10 +88,12 @@ secondary_ctas:
         <div class="card card-light mb-3 mb-md-0 shadow-sm">
           <div class="card-body match-height">
             <figure>
-              <img src="{{ page.hero.promo2.icon }}" alt="{{ page.hero.promo2.title }}" />
+              <img src="{{ page.hero.promo2.icon | relative_url }}" alt="{{ page.hero.promo2.title }}" />
             </figure>
-            {% if page.hero.promo2.url or size > 0 %}
-            <h5><a href="{{ page.hero.promo2.url }}" class="dark">{{ page.hero.promo2.title }}</a></h5>
+            {% if page.hero.promo2.external_url or size > 0 %}
+            <h5><a href="{{ page.hero.promo2.external_url }}" class="dark">{{ page.hero.promo2.title }}</a></h5>
+            {% elsif page.hero.promo2.url or size > 0 %}
+            <h5><a href="{{ page.hero.promo2.url | relative_url }}" class="dark">{{ page.hero.promo2.title }}</a></h5>
             {% else %}
             <h5>{{ page.hero.promo2.title }}</h5>
             {% endif %}
@@ -92,10 +105,12 @@ secondary_ctas:
         <div class="card card-light mb-3 mb-md-0 shadow-sm">
           <div class="card-body match-height">
             <figure>
-              <img src="{{ page.hero.promo3.icon }}" alt="{{ page.hero.promo3.title }}" />
+              <img src="{{ page.hero.promo3.icon | relative_url }}" alt="{{ page.hero.promo3.title }}" />
             </figure>
-            {% if page.hero.promo3.url  or size > 0 %}
-            <h5><a href="{{ page.hero.promo3.url }}" class="dark">{{ page.hero.promo3.title }}</a></h5>
+            {% if page.hero.promo3.external_url or size > 0 %}
+            <h5><a href="{{ page.hero.promo3.external_url }}" class="dark">{{ page.hero.promo3.title }}</a></h5>
+            {% elsif page.hero.promo3.url or size > 0 %}
+            <h5><a href="{{ page.hero.promo3.url | relative_url }}" class="dark">{{ page.hero.promo3.title }}</a></h5>
             {% else %}
             <h5>{{ page.hero.promo3.title }}</h5>
             {% endif %}
@@ -111,13 +126,21 @@ secondary_ctas:
     <div class="row bg-grey">
       <div class="col-sm-5 mb-3 mb-sm-0">
         <h6 class="mb-1">
-          <a href="{{ page.secondary_ctas.cta1.url }}">{{ page.secondary_ctas.cta1.title }}</a>
+          {% if page.secondary_ctas.cta1.external_url or size > 0 %}
+          <a href="{{ page.secondary_ctas.cta1.external_url }}">{{ page.secondary_ctas.cta1.title }}</a>
+          {% else %}
+          <a href="{{ page.secondary_ctas.cta1.url | relative_url }}">{{ page.secondary_ctas.cta1.title }}</a>
+          {% endif %}
         </h6>
         <p class="mb-0">{{ page.secondary_ctas.cta1.content }}</p>
       </div>
       <div class="col-sm-5 offset-sm-2">
         <h6 class="mb-1">
-          <a href="{{ page.secondary_ctas.cta2.url }}">{{ page.secondary_ctas.cta2.title }}</a>
+          {% if page.secondary_ctas.cta2.external_url  or size > 0 %}
+          <a href="{{ page.secondary_ctas.cta2.external_url }}">{{ page.secondary_ctas.cta2.title }}</a>
+          {% else %}
+          <a href="{{ page.secondary_ctas.cta2.url | relative_url }}">{{ page.secondary_ctas.cta2.title }}</a>
+          {% endif %}
         </h6>
         <p class="mb-0">{{ page.secondary_ctas.cta2.content }}</p>
       </div>
@@ -136,7 +159,7 @@ secondary_ctas:
     {% include usecase-posts.html %}
     <div class="row pt-5">
       <div class="col text-center">
-        <a href="/docs/usecases" class="btn btn-secondary btn-sm">See All Usecases</a>
+        <a href="{{ '/docs/usecases' | relative_url}}" class="btn btn-secondary btn-sm">See All Usecases</a>
       </div>
     </div>
   </div>

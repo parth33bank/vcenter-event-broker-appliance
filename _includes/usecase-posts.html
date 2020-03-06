@@ -5,9 +5,9 @@
             <div class="card-body match-height">
                 <div class="post-thumbnail">
                     {% if usecase.image %}
-                    <img src="{{ usecase.image }}" alt="{{ usecase.title }}" />
+                    <img src="{{ usecase.image | relative_url}}" alt="{{ usecase.title }}" />
                     {% else %}
-                    <img src="assets/img/{{ site.logo }}" alt="{{ page.title }}" />
+                    <img src="{{ 'assets/img/' | append: site.logo | relative_url}}" alt="{{ page.title }}" />
                     {% endif %}
                 </div>
                 <article class="post">
