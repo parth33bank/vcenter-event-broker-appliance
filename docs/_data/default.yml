@@ -1,0 +1,59 @@
+toc:
+  - title: Introduction
+    subfolderitems:
+      - page: About
+        url: /kb 
+      - page: Architecture
+        url: /kb/architecture
+      - page: VMware Event Router
+        url: /kb/event-router
+      - page: Functions
+        url: /kb/functions
+
+  - title: Deploy
+    subfolderitems:
+      - page: Event Processor - OpenFaaS
+        url: /kb/deploy-openfaas
+      - page: Event Processor - AWS EventBridge
+        url: /kb/deploy-eventbridge
+
+  - title: Use
+    subfolderitems:
+      - page: Event Provider - vCenter
+        url: /kb/vcenter-events
+      - page: Deploy Functions
+        url: /kb/use-functions
+
+  - title: Contribute
+    subfolderitems:
+      - page: Getting Started
+        url: /kb/contribute-start
+      - page: Build Functions
+        url: /kb/contribute-functions
+      - page: Build Event Router
+        url: /kb/contribute-eventrouter
+      - page: Build Appliance
+        url: /kb/contribute-appliance
+      - page: Build Website
+        url: /kb/contribute-site
+
+  - title: Advanced
+    subfolderitems:
+      - page: Deploy as Kubernetes App
+        url: /kb/advanced-deploy-k8s
+      - page: Update TLS Certificates
+        url: /kb/advanced-certificates
+  
+  - title: Troubleshoot
+    subfolderitems:
+      - page: Troubleshooting Appliance
+        url: /kb/troubleshoot-appliance
+      - page: Troubleshooting Functions
+        url: /kb/troubleshoot-functions
+
+  - title: More..
+    subfolderitems:
+      - page: FAQ
+        url: /faq
+      - page: Resources
+        url: /resources

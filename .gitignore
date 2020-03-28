@@ -5,3 +5,9 @@ dist/
 username
 password
 secret*.json
+.jekyll-metadata
+.saas-cache
+.jekyll-cache
+_site
+Gemfile.lock
+.tweet-cache

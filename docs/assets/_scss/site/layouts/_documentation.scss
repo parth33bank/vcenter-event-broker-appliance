@@ -1,0 +1,111 @@
+#docs {
+  .container.container-max {
+    max-width: 90%;
+  }
+
+  .section-card {
+    margin-bottom: $section-padding-y;
+  }
+
+  table {
+    @extend .table;
+    @extend .table-striped;
+    @extend .table-bordered;
+    thead {
+      @extend .thead-light;
+    }
+    td {
+      code {
+        word-break: keep-all;
+      }
+    }
+  }
+
+  h2, h3, p {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    line-height: $line-height-base;
+    color: #292F33;
+  }
+
+  .toc {
+    nav {
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        margin-left: 10px;
+        font-size: $font-size-sm;
+      }
+    }
+    
+    h3 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-normal;
+      margin-top: 1rem;
+      border-bottom: 1px solid rgba(15,70,100,0.25);
+    }
+  }
+
+  .documentation-container {
+    margin: 1rem 0 1rem 0;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    
+    @include media-breakpoint-down(lg) {
+      max-width: 100%;
+      overflow-x: scroll;
+    }
+  
+    h1 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+    }
+  
+    h2 {
+      margin-top: 1rem;
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+    }
+  
+    h3 {
+      margin-top: 1rem;
+      padding-left: 0.25rem;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-semibold;
+    }
+
+    h4 {
+      padding-left: 0.5rem;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-normal;
+    }
+
+    blockquote {
+      margin: 0 .5rem;
+      padding: 0 1rem;
+      color: #6a737d;
+      border-left: .25em solid #dfe2e5;
+    }
+
+    pre { 
+      code {
+      font-size: 90%;
+      }
+    }
+
+    .highlighter-rouge pre {
+      margin: 1rem .5rem;
+      padding: 0.5rem 1rem;
+    }
+  
+  }
+}
+
+#navigation nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+}
