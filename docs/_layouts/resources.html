@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<body id="blogs">
+  <div class="container-fluid site-outer-container">
+    <div class="site-container">
+    {% include site-header.html %}
+    
+      <div class="post-single-hero  post-single-hero-short bg-color-{{ site.hero.background-color }}"> 
+        <div class="section">
+          <div class="section-content">
+            <h1>{{ page.title }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="section section-card pt-4 pb-0">
+          <div class="container container-max">
+            
+            <h5>Videos</h5>
+            <div class="external-videos row align-items-center">
+              
+              {% for video in site.data.resources.videos %}
+                <div class="order-xs-first col-md-4">
+                  {% oembed {{video.url}} width=400px %}
+                </div>
+                
+                {% if limit > 0 and forloop.index >= limit %}
+                  {% break %}
+                {% endif %}
+                  
+              {% endfor %}
+            </div>
+            <h3></h3>
+            
+            <div class="post-single-content row">
+              
+              <div class="col-md-4 toc tweetfeed">
+                <script>
+                  window.onload = function() {
+                    let frameElement = document.getElementById("twitter-widget-0");
+                    let doc = frameElement.contentDocument;
+                    doc.body.innerHTML = doc.body.innerHTML + '<style>.timeline-TweetList {max-height: 800px; overflow:auto}</style>';
+                  }
+                </script>
+
+                {% twitter site.data.resources.tweet_collection.url align=center theme=light %}
+                
+              </div>
+              
+              <div class="col-md-8">
+                
+                <div class="post-single-content">
+                  <div class="external-links ">
+                    <h2>Links</h2>
+                    {% for link in site.data.resources.links %}
+                      <div class="link-container">
+                        {% if link.title != blank %}
+                        <h3 class="card-title card-resource-title">{{ link.title }}</h3>
+                        {% endif %}
+                        <div class="row no-gutters align-items-center">
+                        {% if link.details.external_image %}
+                        <div class="order-xs-first col-md-3 card-body-override">
+                          <img class="card-img card-resource-img" src="{{ link.details.external_image }}" alt="{{ casestudy.title }}" />
+                          <a class="card-link card-resource-link btn btn-primary btn-sm" href="{{ link.details.external_url }}">{{ link.details.url_text }}</a>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="order-xs-last col-md-9 {% cycle('order-md-last', 'order-md-first') %}">
+                          <div class="card-body card-body-override {% cycle('', 'card-body-alt') %}">
+                            <p class="card-text">{{ link.details.author_name }} - 
+                              <q class="card-text">{{ link.details.excerpt }}</q>
+                            </p>
+                          </div>
+                        </div>
+                      
+                        {% if limit > 0 and forloop.index >= limit %}
+                            {% break %}
+                        {% endif %}
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% include footer.html %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: resources
 title: Additional Resources
 description: Update this
 permalink: /resources
+limit: 3
 ---
 
 ## Blog posts

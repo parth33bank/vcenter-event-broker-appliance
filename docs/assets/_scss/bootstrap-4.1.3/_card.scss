@@ -299,3 +299,30 @@
     border-top-right-radius: 0;
   }
 }
+
+//
+// Resources
+//
+
+.card-resource-title {
+  margin-bottom: 0.1rem;
+}
+
+.card-resource-img {
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.card-resource-link {
+  width: inherit
+}
+
+.card-body-override {
+  padding: 0.75rem $card-spacer-x $card-spacer-y $card-spacer-x;
+}
+
+.card-body-alt {
+  flex: 1 1 auto;
+  padding: 0.75rem $card-spacer-x $card-spacer-y 0rem;
+}

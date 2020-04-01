@@ -1,0 +1,47 @@
+
+links:
+  - title: Event-driven interactions with vSphere using Functions as a Service
+    details: 
+      url_text: blog post
+      external_url: https://rguske.github.io/post/event-driven-interactions-with-vsphere-using-functions-as-a-service/
+      external_image: https://rguske.github.io/img/posts/201902_vspheretagfn/CapturFiles-20190227_052627.jpg 
+      author_name: Robert Guske
+      excerpt: ...explain what a Function/ FaaS is all about, instead of it Michael and I thought that this post should serve as an introduction of a project Michael is working on as well as to demonstrate how 'just' two components are turning your vSphere environment into a Event driven construct based on your annotations...
+    
+  - title: If This Then That for vSphere
+    details: 
+      url_text: article
+      external_url: https://octo.vmware.com/vsphere-power-event-driven-automation/
+      external_image: https://octo.vmware.com/wp-content/uploads/sites/18/2019/10/futuristic-plexus-1440x556.jpeg 
+      author_name: OCTO
+      excerpt: ...recent VMworld 2019 session, “If This Then That” for vSphere – The Power of Event-Driven Automation we explored this space in greater detail. We also demoed a prototype of a soon to be released Virtual Appliance (VMware Fling) which can get you started quickly...
+   
+  - title: vCenter Event Broker Appliance Updates – VMworld, Fling, Community & Open Source
+    details: 
+      url_text: blog post
+      external_url: https://www.virtuallyghetto.com/2019/11/vcenter-event-broker-appliance-updates-vmworld-fling-community-open-source.html
+      external_image: https://i0.wp.com/www.virtuallyghetto.com/wp-content/uploads/2019/11/vcenter-event-broker-appliance-vmworld.png?resize=768%2C386&ssl=1 
+      author_name: William Lam
+      excerpt: ...has been about a week now and we have had several customers who have successfully deploy VEBA and executed their first set of functions which was really exciting to hear given this was just released a little less than a week ago...
+  
+  - title: Audit VM configuration changes using the vCenter Event Broker
+    details: 
+      url_text: blog post
+      external_url: https://www.opvizor.com/audit-vm-configuration-changes-using-the-vcenter-event-broker
+      external_image: https://www.opvizor.com/wp-content/uploads/veba_slack_alert.png
+      author_name: Opvizor Blog
+      excerpt: ...Think about acting based on reconfigure events and push VM config changes to Slack- Audit VM configuration! That way you have all changes documented and searchable using the Slack service...
+  
+tweet_collection:
+  url: https://twitter.com/pkblah/timelines/1245100643565498368
+
+
+videos: 
+- title: blah
+  url: https://www.youtube.com/watch?v=X3usMlmyEoA&feature=emb_logo
+
+- title: blah
+  url: https://www.youtube.com/watch?v=tOjp5_qn-Fg&feature=emb_logo
+
+- title: blah
+  url: https://www.youtube.com/playlist?list=PLQvw_QGg8w6qlcCxXnighoK780ElUrOFj
