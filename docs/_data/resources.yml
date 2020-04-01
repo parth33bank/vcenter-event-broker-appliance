@@ -37,11 +37,14 @@ tweet_collection:
 
 
 videos: 
-- title: blah
+- title: Robert and Michael explore Event Driven Automation for vCenter
+  video_id: X3usMlmyEoA
   url: https://www.youtube.com/watch?v=X3usMlmyEoA&feature=emb_logo
 
-- title: blah
+- title: VEBA team talk about Event Driven Automation, usecases and showcase a demo
+  video_id: tOjp5_qn-Fg
   url: https://www.youtube.com/watch?v=tOjp5_qn-Fg&feature=emb_logo
 
-- title: blah
+- title: Learn how to deploy VEBA and deploy your own functions
+  video_id: /videoseries?list=PLQvw_QGg8w6qlcCxXnighoK780ElUrOFj
   url: https://www.youtube.com/playlist?list=PLQvw_QGg8w6qlcCxXnighoK780ElUrOFj

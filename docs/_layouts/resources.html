@@ -20,16 +20,22 @@
             
             <h5>Videos</h5>
             <div class="external-videos row align-items-center">
-              
               {% for video in site.data.resources.videos %}
                 <div class="order-xs-first col-md-4">
-                  {% oembed {{video.url}} width=400px %}
+                  <div class="embed-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/{{video.video_id}}"
+                        width="400"
+                        height="300"
+                        frameborder=""
+                        allowfullscreen="true">
+                    </iframe>
+                  </div>
                 </div>
                 
                 {% if limit > 0 and forloop.index >= limit %}
                   {% break %}
-                {% endif %}
-                  
+                {% endif %} 
               {% endfor %}
             </div>
             <h3></h3>
@@ -46,45 +52,43 @@
                 </script>
 
                 {% twitter site.data.resources.tweet_collection.url align=center theme=light %}
-                
               </div>
               
               <div class="col-md-8">
                 
                 <div class="post-single-content">
                   <div class="external-links ">
-                    <h2>Links</h2>
+                    <h2>External References</h2>
                     {% for link in site.data.resources.links %}
                       <div class="link-container">
                         {% if link.title != blank %}
                         <h3 class="card-title card-resource-title">{{ link.title }}</h3>
                         {% endif %}
                         <div class="row no-gutters align-items-center">
-                        {% if link.details.external_image %}
-                        <div class="order-xs-first col-md-3 card-body-override">
-                          <img class="card-img card-resource-img" src="{{ link.details.external_image }}" alt="{{ casestudy.title }}" />
-                          <a class="card-link card-resource-link btn btn-primary btn-sm" href="{{ link.details.external_url }}">{{ link.details.url_text }}</a>
-                        </div>
-                        {% endif %}
-                        
-                        <div class="order-xs-last col-md-9 {% cycle('order-md-last', 'order-md-first') %}">
-                          <div class="card-body card-body-override {% cycle('', 'card-body-alt') %}">
-                            <p class="card-text">{{ link.details.author_name }} - 
-                              <q class="card-text">{{ link.details.excerpt }}</q>
-                            </p>
+                          {% if link.details.external_image %}
+                          <div class="order-xs-first col-md-3 card-body-override">
+                            <img class="card-img card-resource-img" src="{{ link.details.external_image }}" alt="{{ casestudy.title }}" />
+                            <a class="card-link card-resource-link btn btn-primary btn-sm" href="{{ link.details.external_url }}">{{ link.details.url_text }}</a>
                           </div>
-                        </div>
-                      
-                        {% if limit > 0 and forloop.index >= limit %}
-                            {% break %}
-                        {% endif %}
+                          {% endif %}
+                          
+                          <div class="order-xs-last col-md-9 {% cycle('order-md-last', 'order-md-first') %}">
+                            <div class="card-body card-body-override {% cycle('', 'card-body-alt') %}">
+                              <p class="card-text">{{ link.details.author_name }} - 
+                                <q class="card-text">{{ link.details.excerpt }}</q>
+                              </p>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
+                      {% if limit > 0 and forloop.index >= limit %}
+                        {% break %}
+                      {% endif %}
                     {% endfor %}
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
