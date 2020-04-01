@@ -50,8 +50,10 @@
                     doc.body.innerHTML = doc.body.innerHTML + '<style>.timeline-TweetList {max-height: 800px; overflow:auto}</style>';
                   }
                 </script>
-
-                {% twitter site.data.resources.tweet_collection.url align=center theme=light %}
+                <a class="twitter-timeline" href="https://twitter.com/{{site.data.resources.tweet_collection.user_handle}}/timelines/{{site.data.resources.tweet_collection.collection_id}}">
+                  Tweets #VEBA - Curated tweets by {{site.data.resources.tweet_collection.user_handle}}
+                </a> 
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
               </div>
               
               <div class="col-md-8">

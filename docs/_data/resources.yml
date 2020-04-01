@@ -33,6 +33,8 @@ links:
       excerpt: ...Think about acting based on reconfigure events and push VM config changes to Slack- Audit VM configuration! That way you have all changes documented and searchable using the Slack service...
   
 tweet_collection:
+  user_handle: pkblah
+  collection_id: 1245100643565498368
   url: https://twitter.com/pkblah/timelines/1245100643565498368
 
 
