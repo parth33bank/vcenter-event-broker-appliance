@@ -1,7 +1,12 @@
-#docs, #blogs{
+#docs {
   .container.container-max {
     max-width: 90%;
   }
+
+  .section-card {
+    margin-bottom: $section-padding-y;
+  }
+
   table {
     @extend .table;
     @extend .table-striped;
@@ -15,18 +20,59 @@
       }
     }
   }
+
+  h2, h3, p {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    line-height: $line-height-base;
+    color: #292F33;
+  }
+
   .toc {
-    padding-left: 30px;
     nav {
       ul {
         padding: 0;
+        list-style: none;
+      }
+
+      li {
+        margin-left: 10px;
+        font-size: $font-size-sm;
       }
     }
+    
+    h3 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-normal;
+      margin-top: 1rem;
+      border-bottom: 1px solid rgba(15,70,100,0.25);
+    }
   }
+
   .documentation-container {
+    margin: 1rem 0 1rem 0;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    
     @include media-breakpoint-down(lg) {
       max-width: 100%;
       overflow-x: scroll;
     }
+  
+    h1 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+    }
+  
+    h2 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+    }
+  
+    h3 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-normal;
+    }
+  
   }
 }

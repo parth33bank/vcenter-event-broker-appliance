@@ -2,7 +2,7 @@
 <html lang="en">
 {% include head.html %}
 
-<body id="blogs">
+<body id="resources">
   <div class="container-fluid site-outer-container">
     <div class="site-container">
     {% include site-header.html %}
@@ -15,12 +15,12 @@
         </div>
       </div>
 
-      <div class="section section-card pt-4 pb-0">
+      <div class="resources section section-card pt-4 pb-0">
           <div class="container container-max">
             
-            <h5>Videos</h5>
+            <h2>Videos</h2>
             <div class="external-videos row align-items-center">
-              {% for video in site.data.resources.videos %}
+              {% for video in site.data.resources.videos limit:site.data.resources.videolimit %}
                 <div class="order-xs-first col-md-4">
                   <div class="embed-container">
                     <iframe
@@ -47,7 +47,7 @@
                   window.onload = function() {
                     let frameElement = document.getElementById("twitter-widget-0");
                     let doc = frameElement.contentDocument;
-                    doc.body.innerHTML = doc.body.innerHTML + '<style>.timeline-TweetList {max-height: 800px; overflow:auto}</style>';
+                    doc.body.innerHTML = doc.body.innerHTML + '<style>.timeline-TweetList {max-height: 1000px; overflow:auto}</style>';
                   }
                 </script>
                 <a class="twitter-timeline" href="https://twitter.com/{{site.data.resources.tweet_collection.user_handle}}/timelines/{{site.data.resources.tweet_collection.collection_id}}">
@@ -61,7 +61,8 @@
                 <div class="post-single-content">
                   <div class="external-links ">
                     <h2>External References</h2>
-                    {% for link in site.data.resources.links %}
+                    {% for link in site.data.resources.links limit:site.data.resources.linklimit %}
+                      {% if link.display == true %}
                       <div class="link-container">
                         {% if link.title != blank %}
                         <h3 class="card-title card-resource-title">{{ link.title }}</h3>
@@ -70,13 +71,13 @@
                           {% if link.details.external_image %}
                           <div class="order-xs-first col-md-3 card-body-override">
                             <img class="card-img card-resource-img" src="{{ link.details.external_image }}" alt="{{ casestudy.title }}" />
-                            <a class="card-link card-resource-link btn btn-primary btn-sm" href="{{ link.details.external_url }}">{{ link.details.url_text }}</a>
+                            <a class="card-link card-resource-link btn btn-primary btn-sm" href="{{ link.details.external_url }}" target="_blank">{{ link.details.url_text }}</a>
                           </div>
                           {% endif %}
                           
                           <div class="order-xs-last col-md-9 {% cycle('order-md-last', 'order-md-first') %}">
                             <div class="card-body card-body-override {% cycle('', 'card-body-alt') %}">
-                              <p class="card-text">{{ link.details.author_name }} - 
+                              <p class="card-text"><b>{{ link.details.author_name }} - </b>
                                 <q class="card-text">{{ link.details.excerpt }}</q>
                               </p>
                             </div>
@@ -84,10 +85,27 @@
 
                         </div>
                       </div>
+                      {% endif %}
                       {% if limit > 0 and forloop.index >= limit %}
                         {% break %}
                       {% endif %}
                     {% endfor %}
+                  </div>
+
+                  <div class="other-links ">
+                    <h3>Other References</h3>
+                    <ul>
+                    {% for otherlink in site.data.resources.otherlinks %}
+                      {% if otherlink.display == true %}
+                        <li>
+                          <a href="{{otherlink.url}}" target="_blank">{{otherlink.title}}</a>
+                        </li>
+                      {% endif %}
+                      {% if limit > 0 and forloop.index >= limit %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                    </ul>
                   </div>
                 </div>
               </div>

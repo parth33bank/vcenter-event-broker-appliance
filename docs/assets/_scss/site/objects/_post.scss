@@ -32,6 +32,24 @@
 
 .post-single-body {
   margin-top: -105px;
+
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  
+  h1 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+  h2 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+  }
+
+  h3 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+  }
 }
 
 .post-single-meta {
@@ -125,7 +143,6 @@
     font-size: $font-size-base;
     font-weight: $font-weight-semibold;
     margin-top: 0.5rem;
-    border-bottom: 1px solid rgba(15,70,100,0.25);
   }
 
   p:last-child {
@@ -139,6 +156,7 @@
 
 table {
   border-collapse: collapse;
+  width: 100%;
 }
 
 table, th, td {
@@ -150,7 +168,7 @@ th, td {
 }
 
 #twitter-widget-0 {
-  max-height: 1000px;
+  max-height: 1200px;
 }
 
 .tweetfeed {

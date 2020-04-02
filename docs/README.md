@@ -38,6 +38,8 @@ If you are running a build on Ubuntu you will need the following packages:
 * zlib1g-dev
 * nginx (or apache2)
 
+### Dependencies for Windows
+If you are on Windows, all hope is not lost. Follow the steps here to install the dependencies - https://jekyllrb.com/docs/installation/windows/
 
 ### Local Development
 * Install Jekyll and plug-ins in one fell swoop. `gem install github-pages`
