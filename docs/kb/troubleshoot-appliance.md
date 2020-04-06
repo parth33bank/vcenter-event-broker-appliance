@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: vCenter Events Broker Appliance
-description: Update this
+title: vCenter Events Broker Appliance Troubleshooting
+description: Troubleshooting guide for general appliance issues
 permalink: /kb/troubleshoot-appliance
 ---
 # vCenter Event Broker Appliance - Troubleshooting
