@@ -6,7 +6,7 @@ username
 password
 secret*.json
 .jekyll-metadata
-.saas-cache
+.sass-cache
 .jekyll-cache
 _site
 Gemfile.lock
