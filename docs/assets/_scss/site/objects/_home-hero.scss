@@ -1,10 +1,9 @@
 .home-hero {
-  @include media-breakpoint-down(sm) {
-    background-image: none !important;
-  }
+
   @include media-breakpoint-up(md) {
     min-height: 500px;  
   }
+
   color: $white;
   h1,
   h2,
@@ -20,28 +19,47 @@
       @include media-breakpoint-up(md) {
         @include make-col-ready();
         @include make-col(8);
-      }  
+      }
+      
+      p {
+        @include media-breakpoint-up(md) {
+          width: 100% ! important;
+        }
+
+        @include media-breakpoint-down(md) {
+          width: 150% ! important;
+        }
+
+        @media only screen and (min-width: 900px) {
+          width: 105% ! important;
+        }
+
+        @include media-breakpoint-down(sm) {
+          width: 100% ! important;
+        }
+      }
     }
     
   }
 
-  .hero-content {
-    position: absolute;
-    float: left;
-  }
-
   .hero-veba-mascot {
-    position: absolute;
-    float:right;
-    z-index: 0;
-    top: 80px;
-    right:280px;
-    width:30%;
-    transition: transform 2s;
-  }
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 3s;
 
-  .hero-veba-mascot:hover {
-    transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    @include media-breakpoint-up(md) {
+      @include make-col-ready();
+      @include make-col(4);
+    } 
+
+    @include media-breakpoint-down(md) {
+      @include make-col-ready();
+      @include make-col(3);
+    } 
+
+    @include media-breakpoint-down(sm) {
+      background-image: none !important;
+    }
   }
 
   .hero-cta {
@@ -71,4 +89,8 @@
       padding: 0;
     }
   }
+}
+
+.home-hero:hover .hero-veba-mascot {
+  transform: scale(1.1); /* (110% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }

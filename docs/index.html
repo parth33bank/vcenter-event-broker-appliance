@@ -1,14 +1,14 @@
 ---
 layout: default
 id: home
-description: vCenter Event-driven Functions as a Service Platform
+description: VMware Event-driven Functions as a Service Platform
 backgrounds:
   case_study: cornflower-blue
   team: dark-blue
 hero:
   banner: assets/img/heroes/veba-banner.png
   headline: Unlocking event driven capabilities for traditional vSphere deployments
-  content: Explore new capabilities through vCenter based event-driven automation. Powerful integrations between datacenter-internal enterprise services and cloud services, for example Slack and Pager Duty, can be created with vCenter Event Broker Appliance out of the box
+  content: Explore new capabilities through vCenter based event-driven automation. Powerful integrations between datacenter-internal enterprise services and cloud services, for example Slack and Pager Duty, can be created with VMware Event Broker Appliance out of the box
   cta_link1:
     text: Download & Install
     external_url: https://flings.vmware.com/vcenter-event-broker-appliance
@@ -45,11 +45,14 @@ secondary_ctas:
     
     <div class="section-content">
       
-      <div class="hero-content">
-        <h1 class="mb-3">{{ page.hero.headline }}</h1>
-        <p>{{ page.hero.content }}</p>
+      <div class="row">
+        <div class="hero-content">
+          <h1 class="mb-3">{{ page.hero.headline }}</h1>
+          <p>{{ page.hero.content }}</p>
+        </div>
+        <div class="hero-veba-mascot" style="background-image: url('{{page.hero.banner | relative_url}}')"></div>
       </div>
-      <img class="hero-veba-mascot" src="{{ page.hero.banner }}"/>
+
       <div class="hero-cta mt-4">
         {% if page.hero.cta_link1.external_url or size > 0 %}
           <a href="{{ page.hero.cta_link1.external_url }}" target="_blank" class="btn btn-primary mb-3 mb-sm-0">{{ page.hero.cta_link1.text }}</a>
