@@ -162,3 +162,99 @@ Here is the command output:
 ```
 
 We now see that the Event Router came online, connected to vCenter, and successfully received an event.
+
+## Changing the vCenter service account
+
+If you need to change the account the appliance uses to connect to vCenter, use the following procedure. 
+
+Open a console to the appliance. If you want to do the configuration via SSH, you must first enable the SSH daemon with the following command
+```bash 
+systemcl start sshd
+```
+The SSH daemon will run but not automatically start with the next reboot. You can use the same command with `stop` instead of `start` when you are finished. Or you can type everything directly into the console if you do not want to use SSH.
+
+Edit the configuration file with vi
+```bash
+vi /root/event-router-config.json
+```
+
+The editor will open with output similar to this (truncated)
+```bash
+[{
+                "type": "stream",
+                "provider": "vmware_vcenter",
+                "address": "https://vc01.lab.int/sdk",
+                "auth": {
+                        "method": "user_password",
+                        "secret": {
+                                "username": "administrator@vsphere.local",
+                                "password": "KeepMeSecure123!"
+                        }
+                },
+                "options": {
+                        "insecure": "true"
+                }
+        },
+```
+
+Change the username and password, then save the file. Then delete and recreate the event router pod secret with the following commands:
+```bash
+kubectl -n vmware delete secret event-router-config
+kubectl -n vmware create secret generic event-router-config --from-file=/root/event-router-config.json
+```
+
+Now, restart the event router pod. Get the current pod name with the following command:
+```bash
+kubectl get pods -A
+```
+You will see output similar the following (trucnated):
+```bash
+projectcontour   contour-certgen-7r9dl                  0/1     Completed   0          22d
+projectcontour   envoy-htrwv                            1/1     Running     1          22d
+vmware           tinywww-7fcfc6fb94-tv98j               1/1     Running     1          22d
+vmware           vmware-event-router-5dd9c8f858-7htv5   1/1     Running     14         19d
+```
+
+Find the event router pod. Every environment will have a unique suffix on the pod name - in this example, it is `-5dd9c8f858-7htv5`. Delete the event router pod with the following command (make sure to match the pod name with the one in your environment):
+```bash
+kubectl -n vmware delete pod vmware-event-router-5dd9c8f858-7htv5
+```
+
+The pod will automatically recreate itself. You can repeatedly run the following command:
+```bash
+kubectl get pods -A
+```
+Various stages of the pod lifecycle may be shown. Here, we see the original pod terminating while the new pod is spinning up.
+```bash
+projectcontour   envoy-htrwv                            1/1     Running             1          22d
+vmware           tinywww-7fcfc6fb94-tv98j               1/1     Running             1          22d
+vmware           vmware-event-router-5dd9c8f858-7htv5   0/1     Terminating         14         19d
+vmware           vmware-event-router-5dd9c8f858-l6gdj   0/1     ContainerCreating   0          4s
+```
+
+Eventually the old pod will disappear and the new pod will show as running:
+```bash
+projectcontour   contour-certgen-7r9dl                  0/1     Completed   0          22d
+projectcontour   envoy-htrwv                            1/1     Running     1          22d
+vmware           tinywww-7fcfc6fb94-tv98j               1/1     Running     1          22d
+vmware           vmware-event-router-5dd9c8f858-l6gdj   1/1     Running     0          92s
+```
+
+You can check the pod logs with the following command (make sure to add the correct suffix shown in your environment):
+```bash
+kubectl logs -n vmware kubectl logs -n vmware  vmware-event-router-5dd9c8f858-n9pg6
+```
+You should see a successful connection to vCenter in the logs
+```bash
+ _    ____  ___                            ______                 __     ____              __
+| |  / /  |/  /      ______ _________     / ____/   _____  ____  / /_   / __ \____  __  __/ /____  _____
+| | / / /|_/ / | /| / / __  / ___/ _ \   / __/ | | / / _ \/ __ \/ __/  / /_/ / __ \/ / / / __/ _ \/ ___/
+| |/ / /  / /| |/ |/ / /_/ / /  /  __/  / /___ | |/ /  __/ / / / /_   / _, _/ /_/ / /_/ / /_/  __/ /
+|___/_/  /_/ |__/|__/\__,_/_/   \___/  /_____/ |___/\___/_/ /_/\__/  /_/ |_|\____/\__,_/\__/\___/_/
+
+
+[VMware Event Router] 2020/04/08 05:07:11 connecting to vCenter https://vc01.lab.int/sdk
+[VMware Event Router] 2020/04/08 05:07:11 connecting to OpenFaaS gateway http://gateway.openfaas:8080 (async mode: false)
+[VMware Event Router] 2020/04/08 05:07:11 exposing metrics server on 0.0.0.0:8080 (auth: basic_auth)
+[Metrics Server] 2020/04/08 05:07:11 starting metrics server and listening on "http://0.0.0.0:8080/stats"
+```
