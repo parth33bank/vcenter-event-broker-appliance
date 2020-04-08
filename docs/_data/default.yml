@@ -10,12 +10,12 @@ toc:
       - page: Functions
         url: /kb/functions
 
-  - title: Deploy
+  - title: Install
     subfolderitems:
       - page: Event Processor - OpenFaaS
-        url: /kb/deploy-openfaas
+        url: /kb/install-openfaas
       - page: Event Processor - AWS EventBridge
-        url: /kb/deploy-eventbridge
+        url: /kb/install-eventbridge
 
   - title: Use
     subfolderitems:
