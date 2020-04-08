@@ -65,7 +65,7 @@ Customers looking to seamlessly extend their vCenter through native AWS componen
 
 #### **zAdvanced** (Optional)
   * Debugging - When enabled, this will output a more verbose log file that can be used to troubleshoot failed deployments
-  * POD CIDR Network - Customize POD CIDR Network (Default 10.99.0.0/20)
+  * POD CIDR Network - Customize POD CIDR Network (Default 10.99.0.0/20). Must not overlap with the appliance IP address.
 
 ### Step 3 - Power On the vCenter Event Broker Appliance after successful deployment. Depending on your external network connectivity, it can take a few minutes while the system is being setup. You can open the VM Console to view the progress. Once everything is completed, you should see an updated login banner for the various endpoints:
 
