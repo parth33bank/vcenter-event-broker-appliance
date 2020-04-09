@@ -9,7 +9,7 @@ permalink: /kb/architecture
 
 The vCenter Event Broker Appliance follows a highly modular approach, using Kubernetes and containers as an abstraction layer between the base operating system ([Photon OS](https://github.com/vmware/photon)) and the required application services. Currently the following components are used in the appliance:
 
-- VMware Event Router ([Github](https://github.com/vmware-samples/vcenter-event-broker-appliance/vmware-event-router))
+- VMware Event Router ([Github](https://github.com/vmware-samples/vcenter-event-broker-appliance/tree/master/vmware-event-router))
   - Supported Event Stream Sources:
     - VMware vCenter ([Website](https://www.vmware.com/products/vcenter-server.html))
   - Supported Event Stream Processors: 
@@ -36,7 +36,7 @@ The vCenter Event Broker Appliance follows a highly modular approach, using Kube
 
 <img src="./img/veba-appliance-diagram.png" height="250" align="right" />
 
-Even though the vCenter Event Broker Appliance is instantiated as a single running virtual machine, internally it's components follow a [microservices architecture](#components) running on Kubernetes. The individual services communicate via TCP/IP network sockets. Most of the communication is performed internally in the appliance so the chance of losing network packets is reduced. 
+Even though the vCenter Event Broker Appliance is instantiated as a single running virtual machine, internally its components follow a [microservices architecture](#components) running on Kubernetes. The individual services communicate via TCP/IP network sockets. Most of the communication is performed internally in the appliance so the chance of losing network packets is reduced. 
 
 However, in case of a component being unavailable (crash-loop, overloaded and slow to respond) communication might be impacted and so it's important to understand the consequences for event delivery, i.e. function invocation. To avoid the risk of blocking remote calls, which could render the whole system unusable, sensible default timeouts are applied which can be fine-tuned if needed.
 
