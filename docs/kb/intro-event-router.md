@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: VMware Event Broker Appliance
-description: Update this
+title: VMware Event Router
+description: VMware Event Router introduction
 permalink: /kb/event-router
 ---
 
@@ -9,13 +9,20 @@ permalink: /kb/event-router
 
 The VMware Event Router is responsible for connecting to event `stream` sources, such as VMware vCenter, and forward events to an event `processor`. To allow for extensibility and different event sources/processors event sources and processors are abstracted via Go `interfaces`.
 
-Currently, one VMware Event Router is deployed per appliance (1:1 mapping). Also, only one event stream (source) and one processor can be configured. The list of supported event sources and processors can be found [above](#components). That means, only one vCenter event stream can be processed per appliance. We are evaluating options to support multiple event sources (vCenter servers) and processors per appliance (scale up) or alternatively support multi-node appliance deployments (scale out), which might be required in large deployments (performance, throughput). 
+Currently, one VMware Event Router is deployed per appliance (1:1 mapping). Only one vCenter event stream can be processed per appliance.  Also, only one event stream (source) and one processor can be configured. The list of supported event sources and processors can be found below.We are evaluating options to support multiple event sources (vCenter servers) and processors per appliance (scale up) or alternatively support multi-node appliance deployments (scale out), which might be required in large deployments (performance, throughput). 
 
 > **Note:** We have not done any extensive performance and scalability testing to understand the limits of the single appliance model.
 
+# Supported Event Sources
+- [VMware vCenter Server](https://www.vmware.com/products/vcenter-server.html)
+
+# Supported Event Processors
+- [OpenFaaS](https://www.openfaas.com/)
+- [AWS EventBridge](https://aws.amazon.com/eventbridge/?nc1=h_ls)
+
 # Event Handling
 
-As described in the architecture section [above](#architecture) due to the microservices architecture used in the vCenter Event Broker Appliance one always has to consider message delivery problems such as timeouts, delays, reordering, loss. These challenges are fundamental to [distributed systems](https://github.com/papers-we-love/papers-we-love/blob/master/distributed_systems/a-note-on-distributed-computing.pdf) and must be understood and considered by function authors.
+As described in the [architecture section](intro-architecture.md) due to the microservices architecture used in the vCenter Event Broker Appliance one always has to consider message delivery problems such as timeouts, delays, reordering, loss. These challenges are fundamental to [distributed systems](https://github.com/papers-we-love/papers-we-love/blob/master/distributed_systems/a-note-on-distributed-computing.pdf) and must be understood and considered by function authors.
 
 ## Event Types supported
 
@@ -39,7 +46,7 @@ Even though this example looks simple, a lot of things can go wrong when transfe
 - The consumer acknowledges the message but this message is lost/delayed/arrives out of order
 - The producer immediately after receiving the acknowledgement crashes
 
-> **Note:** For our explanation it doesn't really matter whether the packet (message) actually leaves the machine or the destination (consumer) is on the same host. Of course, having a physical network in between the actors increases the chances of [messaging failures](https://queue.acm.org/detail.cfm?id=2655736). The network protocol in use was intentionally left unspecified. 
+> **Note:** For our example, it doesn't really matter whether the packet (message) actually leaves the machine or the destination (consumer) is on the same host. Of course, having a physical network in between the actors increases the chances of [messaging failures](https://queue.acm.org/detail.cfm?id=2655736). The network protocol in use was intentionally left unspecified. 
 
 One of the following message delivery semantics is typically used to describe the messaging characteristics of a particular distributed system, such as the vCenter Event Broker Appliance:
 
