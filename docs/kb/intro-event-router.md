@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: VMware Event Router
-description: VMware Event Router introduction
+title: VMware Event Router - Introduction
+description: VMware Event Router Introduction
 permalink: /kb/event-router
 ---
 

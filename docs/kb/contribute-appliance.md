@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: vCenter Events Broker Appliance
-description: Update this
+title: Building the vCenter Event Broker Appliance 
+description: Building the vCenter Event Broker Appliance
 permalink: /kb/contribute-appliance
 ---
 

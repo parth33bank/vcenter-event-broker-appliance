@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: vCenter Events Broker Appliance
-description: Update this
+title: vCenter Event Broker Appliance - vCenter Events
+description: vCenter Event Broker Appliance - vCenter Events
 permalink: /kb/vcenter-events
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: VMware Event Broker Appliance
-description: Update this
+title: VMware Event Broker Appliance - Intro to Functions
+description: VMware Event Broker Appliance - Intro to Functions
 permalink: /kb/functions
 ---
 

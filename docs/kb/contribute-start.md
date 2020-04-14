@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: vCenter Event Broker Appliance
+title: vCenter Event Broker Appliance - Getting Started
 description: Getting Started
 permalink: /kb/contribute-start
 ---

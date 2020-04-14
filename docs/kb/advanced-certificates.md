@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: vCenter Events Broker Appliance
-description: Update this
+title: vCenter Event Broker Appliance - Certificates
+description: Updating Certificates
 permalink: /kb/advanced-certificates
 ---
 

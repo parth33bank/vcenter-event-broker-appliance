@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: VMware Event Broker Appliance
-description: Update this
+title: VMware Event Broker Appliance - Architecture
+description: vCenter Event Broker Appliance Architecture
 permalink: /kb/architecture
 ---
 

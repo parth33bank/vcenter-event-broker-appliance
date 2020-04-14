@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: vCenter Event Broker Appliance
+title: vCenter Event Broker Appliance - Introduction
 description: vCenter Event Broker Appliance - Introduction
 permalink: /kb
 ---

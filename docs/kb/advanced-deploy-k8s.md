@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: vCenter Events Broker Appliance
-description: Update this
+title: vCenter Event Broker Appliance - Event Router Standalone
+description: Standalone Deployment of Event Router
 permalink: /kb/advanced-deploy-k8s
 ---
 

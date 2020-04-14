@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: vCenter Events Broker Appliance
-description: Update this
+title: Building the Event Router
+description: Building the Event Router
 permalink: /kb/contribute-eventrouter
 ---
 

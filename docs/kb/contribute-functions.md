@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: vCenter Events Broker Appliance
-description: Update this
+title: vCenter Event Broker Appliance - Building Functions
+description: Building Functions
 permalink: /kb/contribute-functions
 ---
 

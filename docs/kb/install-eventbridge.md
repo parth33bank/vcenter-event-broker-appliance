@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: vCenter Events Broker Appliance
-description: Update this
+title: vCenter Event Broker Appliance - EventBridge
+description: Deploying vCenter Event Broker Appliance with AWS EventBridge
 permalink: /kb/install-eventbridge
 ---
 
