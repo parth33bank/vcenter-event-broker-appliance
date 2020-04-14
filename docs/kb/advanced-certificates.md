@@ -35,4 +35,4 @@ kubectl --kubeconfig /root/.kube/config -n vmware create secret tls ${CERT_NAME}
 kubectl --kubeconfig /root/.kube/config apply -f /root/ingressroute-gateway.yaml
 ```
 
-Watch this short video to see the steps being performed to successfully update the certs for VEBA configured for OpenFaaS - https://youtu.be/7oMCvxvL2ns
+Watch this short video to see the steps being performed to successfully update the certs for VEBA configured for OpenFaaS - [https://youtu.be/7oMCvxvL2ns](https://youtu.be/7oMCvxvL2ns)
