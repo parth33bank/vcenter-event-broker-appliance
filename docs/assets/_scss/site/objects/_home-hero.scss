@@ -18,7 +18,7 @@
     .hero-cta {       
       @include media-breakpoint-up(md) {
         @include make-col-ready();
-        @include make-col(8);
+        @include make-col(7);
       }
       
       p {
@@ -45,19 +45,39 @@
   .hero-veba-mascot {
     background-repeat: no-repeat;
     background-size: contain;
-    transition: transform 3s;
-
-    @include media-breakpoint-up(md) {
+    transition: transform 5s;
+    
+    @include media-breakpoint-up(lg) {
       @include make-col-ready();
-      @include make-col(4);
+      height: 575px;
+      width: 100%;
+      position: absolute;
+      float: right;
+      top: 80px;
+      left: 57.5%;
     } 
 
+    @include media-breakpoint-down(lg) {
+      height: 575px;
+      width: 40%;
+      position: absolute;
+      float: right;
+      top: 150px;
+      left: 58.5%;
+      background-image: url('/vcenter-event-broker-appliance/assets/img/heroes/veba_banner.png') !important;
+    } 
+    
     @include media-breakpoint-down(md) {
-      @include make-col-ready();
-      @include make-col(3);
+      flex: 0 0 25%;
+      max-width: 40%;
+      top: 150px !important;
+      right: 0 !important;
+      height: 330px;
+      background-image: url('/vcenter-event-broker-appliance/assets/img/heroes/veba_banner.png') !important;
     } 
 
     @include media-breakpoint-down(sm) {
+      height: 1px;
       background-image: none !important;
     }
   }
@@ -92,5 +112,6 @@
 }
 
 .home-hero:hover .hero-veba-mascot {
-  transform: scale(1.1); /* (110% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  /*transform: scale(1.1);  (110% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: translateX(-20px);
 }
