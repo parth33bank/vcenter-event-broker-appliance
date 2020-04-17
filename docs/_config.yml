@@ -1,19 +1,23 @@
 # theme: jekyll-theme-leap-day
 
 # Site settings
-title: VMware Events Broker Appliance
+title: VMware Event Broker Appliance
 email: DL-VEBA@vmware.com
 author: VEBA Authors
 show_downloads: false
 description: The VMware Event Broker Appliance Fling enables customers to easily create event-driven automation based on vCenter Server Events.
 #url: veba.io
 logo: veba-logo.png
-people: false
+banner_main: assets/img/heroes/veba_banner_md.png
+banner_alt: assets/img/heroes/veba_banner_md_pride.png
+people: true
+people_limit: 12
 twitter:
-  username: --
+  username: vEventBroker
   card: summary
 vm_logo: vm-logo.png
 gh_repo: https://github.com/vmware-samples/vcenter-event-broker-appliance
+repository: pksrc/vcenter-event-broker-appliance
 
 hero:
   background-color: cornflower-blue
@@ -26,9 +30,9 @@ footer:
   vm-link: http://vmware.github.io/
 
 footer_social_links:
-  #Twitter:
-   # fa_icon: fab fa-twitter
-   # url: https://twitter.com/vmware
+  Twitter:
+    fa_icon: fab fa-twitter
+    url: https://twitter.com/vEventBroker
   Slack:
     fa_icon: fab fa-slack
     url: https://vmwarecode.slack.com/archives/CQLT9B5AA
@@ -77,6 +81,7 @@ plugins:
   - jekyll-paginate # pagination object for collections (e.g. posts)
   - jekyll-redirect-from
   - jekyll-seo-tag
+  - jekyll-github-metadata
 
 # Include these subdirectories
 include:

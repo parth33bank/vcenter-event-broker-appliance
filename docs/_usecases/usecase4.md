@@ -1,12 +1,12 @@
 ---
-title: Notification
+title: Remediation
 #subtitle: See Function
 redirect_from: /docs
-image: fas fa-bell
-excerpt: Enable modern integrations that allow notification through modern channels such as Slack, PagerDuty, Text etc
+image: fas fa-fire-extinguisher
+excerpt: Streamline operations by leveraging events to monitor and remediate certain efforts
 author_name: VEBA Team
 # author_avatar: https://placehold.it/64x64
-categories: ['notify']
+categories: ['remediate']
 # Tag should match author to drive author pages
 tags: ['VEBA Team']
 ---

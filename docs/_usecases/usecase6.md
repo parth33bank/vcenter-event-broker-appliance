@@ -1,12 +1,12 @@
 ---
-title: Integration
+title: Prediction*
 #subtitle: See Function
 redirect_from: /docs
-image: fab fa-aws
-excerpt: Do more with the VMC on AWS platform by leveraging native AWS capabilities through AWS Event Bridge
+image: fas fa-laptop-code
+excerpt: Take it all a step further to learn from the past events and predict your resource needs
 author_name: VEBA Team
 # author_avatar: https://placehold.it/64x64
-categories: ['cloud']
+categories: ['predict']
 # Tag should match author to drive author pages
 tags: ['VEBA Team']
 ---

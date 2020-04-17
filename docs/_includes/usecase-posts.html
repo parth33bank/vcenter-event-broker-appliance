@@ -1,33 +1,32 @@
+
 <div class="row">
-{% for usecase in site.usecases %}
-    <div class="col-xs col-md-4">
-        <div class="card card-light mb-3 mb-md-0 blog-card">
-            <div class="card-body match-height">
-                <div class="post-thumbnail">
-                    {% if usecase.image %}
-                    <img src="{{ usecase.image | relative_url}}" alt="{{ usecase.title }}" />
-                    {% else %}
-                    <img src="{{ 'assets/img/' | append: site.logo | relative_url}}" alt="{{ page.title }}" />
-                    {% endif %}
-                </div>
-                <article class="post">
-                    <h5 class="text-center font-weight-medium">
-                        <a href="{{ site.baseurl }}{{ page.url }}" class="post-title">{{ usecase.title }}</a>
-                    </h5>
-                    <div class="post-entry">
-                        {{ usecase.excerpt | strip_html }}
-                    </div>
-                </article>
+    {% for usecase in site.usecases %}
+    <div class="col-md m-1 p-1">
+        <div class="card card-light shadow">
+            <div class="card-body align-middle pt-4">
+                <a href="{{ site.baseurl }}{{ page.url }}">
+                    <h5 class="mt-2">
+                        <span class="{{ usecase.image }} text-dark"></span>
+                        <span class="card-title">
+                            {{ usecase.title }}
+                        </span>
+                   </h5>
+                </a>
+                <p >
+                    {{ usecase.excerpt | strip_html }}
+                </p>
+                
             </div>
+            
         </div>
     </div>
     {% if limit > 0 and forloop.index >= limit %}
-        {% break %}
+    {% break %}
     {% endif %}
     {% assign row = forloop.index | modulo: 3 %}
-{% if row == 0 %}
+    {% if row == 0 %}
 </div>
-<div class="row mt-4">
-{% endif %}
-{% endfor %}
+<div class="row mt-3">
+    {% endif %}
+    {% endfor %}
 </div>

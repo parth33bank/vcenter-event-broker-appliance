@@ -1,29 +1,34 @@
 <div class="row">
   <div class="col">
-    <h2 class="mb-2">The {{ site.title }} Team</h2>    
+    <h2 class="mb-2">{{ site.title }} Team</h2>    
   </div>
 </div>
 <div class="row">
   <div class="col">
     <p>{{ site.title }} is released as open source software and provides community support through our GitHub project page.
         If you encounter an issue or have a question, feel free to reach out on the <strong><a href="{{ site.gh_repo }}/issues" target="_blank" class="light">GitHub issues page for {{ site.title }}</a></strong>.</p>
-    <p>Our team welcomes contributions from the community, please see our <strong><a href="/community" class="light">contributing documentation</a></strong>.
+    <p>Our team welcomes contributions from the community, please see our <strong><a href="/community" class="light">contributing guidelines</a></strong>.
     </p>
   </div>
 </div>
 
 {% if site.people %}
-<!--<div class="row thumbnail-grid mt-5">
-  {% for person in site.contributors %}
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="media thumbnail-item">
-        <img src="{{ person.image }}" class="rounded-circle" alt="Person" />
-        <div class="media-body align-self-center">
-          <h6><a href="#">{{ person.first_name }} {{ person.last_name }}</a></h6>
-        {{ person.content | markdownify }}    
+<div class="row thumbnail-grid mt-3">
+  {% for person in site.github.contributors %}
+    <div class="col-xs-6 col-sm-3 col-md-2">
+      <div class="media thumbnail-item d-flex flex-column align-items-center mb-3">
+       
+          <a href="{{person.html_url}}" target="_blank" class="p-1 text-center">
+            <img src="{{ person.avatar_url }}" class="rounded-circle shadow-sm" alt="Person" />
+            <span class="mt-2 p-1 w-100 badge badge-light align-middle">
+              {{ person.login }}
+            </span>
+          </a>
         </div>
-      </div>
     </div>
+    {% if site.peoplelimit > 0 and forloop.index >= site.people_limit %}
+      {% break %}
+    {% endif %}
   {% endfor %}
-</div>-->
+</div>
 {% endif %}

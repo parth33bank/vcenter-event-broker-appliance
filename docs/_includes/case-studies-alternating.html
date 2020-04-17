@@ -1,7 +1,7 @@
 {{casestudy_background}}
 <div class="alternating-cards">
   {% for casestudy in site.casestudies %}
-    <div class="row no-gutters align-items-center">
+    <div class="row no-gutters align-items-center shadow">
       {% if casestudy.icon %}
       <div class="order-xs-first col-md-3 match-height icon bg-color-{{ page.backgrounds.case_study }} {%  cycle('order-md-first', 'order-md-last') %}">
         <img src="{{ '/assets/img/case-study-icons/' | append: casestudy.icon | relative_url }}" alt="{{ casestudy.title }}"/>

@@ -6,7 +6,6 @@ backgrounds:
   case_study: cornflower-blue
   team: dark-blue
 hero:
-  banner: assets/img/heroes/veba-banner.png
   headline: Unlocking event driven capabilities for traditional vSphere deployments
   content: Explore new capabilities through vCenter based event-driven automation. Powerful integrations between datacenter-internal enterprise services and cloud services, for example Slack and Pager Duty, can be created with VMware Event Broker Appliance out of the box
   cta_link1:
@@ -42,41 +41,47 @@ secondary_ctas:
 ---
 <div class="home-hero bg-color-{{ site.hero.background-color }}">
   <div class="section">
-    
     <div class="section-content">
-      
       <div class="row">
-        <div class="hero-content">
-          <h1 class="mb-3">{{ page.hero.headline }}</h1>
-          <p>{{ page.hero.content }}</p>
+        <div class="col-md-7">
+          <div class="hero-content">
+            <h1 class="mb-3">{{ page.hero.headline }}</h1>
+            <p>{{ page.hero.content }}</p>
+          </div>
+          <div class="hero-cta mt-4">
+            {% if page.hero.cta_link1.external_url or size > 0 %}
+              <a href="{{ page.hero.cta_link1.external_url }}" target="_blank" class="btn btn-primary mb-3 mb-sm-0">{{ page.hero.cta_link1.text }}</a>
+            {% else %}
+              <a href="{{ page.hero.cta_link1.url | relative_url }}" class="btn btn-primary mb-3 mb-sm-0">{{ page.hero.cta_link1.text }}</a>
+            {% endif %}
+            {% if page.hero.cta_link2.external_url or size > 0 %}
+              <a href="{{ page.hero.cta_link2.external_url }}" target="_blank" class="btn btn-outline-light">{{ page.hero.cta_link2.text }}</a>
+            {% else %}
+              <a href="{{ page.hero.cta_link2.url | relative_url }}" class="btn btn-outline-light">{{ page.hero.cta_link2.text }}</a>
+            {% endif %}
+            
+            <!--<a href="{{ page.hero.cta_link3.url }}" class="btn btn-outline-light">{{ page.hero.cta_link3.text }}</a>-->
+          </div>
         </div>
-        <div class="hero-veba-mascot" style="background-image: url('{{page.hero.banner | relative_url}}')"></div>
+        <div class="col-md-5">
+          {% include day-night.html%}
+          <div class="hero-veba-mascot">
+            <img id="otto" src="{{site.banner_main | relative_url}}"/>
+            <img id="otto-pride" src="{{site.banner_alt | relative_url}}" style="display:none; opacity:0.5;"/>
+          </div>
+          
+        </div>
       </div>
-
-      <div class="hero-cta mt-4">
-        {% if page.hero.cta_link1.external_url or size > 0 %}
-          <a href="{{ page.hero.cta_link1.external_url }}" target="_blank" class="btn btn-primary mb-3 mb-sm-0">{{ page.hero.cta_link1.text }}</a>
-        {% else %}
-          <a href="{{ page.hero.cta_link1.url | relative_url }}" class="btn btn-primary mb-3 mb-sm-0">{{ page.hero.cta_link1.text }}</a>
-        {% endif %}
-        {% if page.hero.cta_link2.external_url or size > 0 %}
-          <a href="{{ page.hero.cta_link2.external_url }}" target="_blank" class="btn btn-outline-light">{{ page.hero.cta_link2.text }}</a>
-        {% else %}
-          <a href="{{ page.hero.cta_link2.url | relative_url }}" class="btn btn-outline-light">{{ page.hero.cta_link2.text }}</a>
-        {% endif %}
-        
-        <!--<a href="{{ page.hero.cta_link3.url }}" class="btn btn-outline-light">{{ page.hero.cta_link3.text }}</a>-->
-      </div>
-      
     </div>
     
   </div>
 </div> <!-- /home-hero -->
-<div class="section section-card section-card-offset-top promo-cards">
+
+<div class="section section-card section-card-offset-top promo-cards pb-0">
   <div class="section-content">
     <div class="row">
       <div class="col-md">
-        <div class="card card-light mb-3 mb-md-0 shadow-sm">
+        <div class="card card-light mb-3 mb-md-0 shadow">
           <div class="card-body match-height">
             <figure>
               <img src="{{ page.hero.promo1.icon | relative_url }}" alt="{{ page.hero.promo1.title }}" />
@@ -93,7 +98,7 @@ secondary_ctas:
         </div>
       </div>
       <div class="col-md">
-        <div class="card card-light mb-3 mb-md-0 shadow-sm">
+        <div class="card card-light mb-3 mb-md-0 shadow">
           <div class="card-body match-height">
             <figure>
               <img src="{{ page.hero.promo2.icon | relative_url }}" alt="{{ page.hero.promo2.title }}" />
@@ -110,7 +115,7 @@ secondary_ctas:
         </div>
       </div>
       <div class="col-md">
-        <div class="card card-light mb-3 mb-md-0 shadow-sm">
+        <div class="card card-light mb-3 mb-md-0 shadow">
           <div class="card-body match-height">
             <figure>
               <img src="{{ page.hero.promo3.icon | relative_url }}" alt="{{ page.hero.promo3.title }}" />
@@ -129,6 +134,7 @@ secondary_ctas:
     </div>
   </div>
 </div>
+
 <div class="section section-grey">
   <div class="section-content">
     <div class="row bg-grey">
@@ -157,28 +163,24 @@ secondary_ctas:
 </div>
 
 <div class="section pt-3">
-  <div class="section-content">
+  <div class="section-content promo-cards">
     <div class="row">
-      <div class="col">
-        <h2>Popular Usecases</h2>
-      </div>
+      <h2>Popular Usecases</h2>
     </div>
-    {% assign limit = 3 %}
+    {% assign limit = 6 %}
     {% include usecase-posts.html %}
-    <div class="row pt-5">
+    <div class="row pt-4">
       <div class="col text-center">
-        <a href="{{ '/docs/usecases' | relative_url}}" class="btn btn-secondary btn-sm">See All Usecases</a>
+        <a href="{{ '/kb#users-and-use-cases' | relative_url}}" class="btn btn-secondary btn-sm">See All Usecases</a>
       </div>
     </div>
   </div>
 </div>
 
-<div class="section">
+<div class="section pt-0 pb-0">
   <div class="section-content">
     <div class="row">
-      <div class="col">
-        <h2>Featured Functions</h2>
-      </div>
+      <h2>Featured Functions</h2>
     </div>
     {% assign limit = 3 %}
     {% include case-studies-alternating.html %}
@@ -190,3 +192,5 @@ secondary_ctas:
     {% include contributors.html %}
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+<script src="/assets/js/day-night.js"></script>

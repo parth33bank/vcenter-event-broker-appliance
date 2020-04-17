@@ -1,12 +1,12 @@
 ---
-title: Automation
+title: Audit
 #subtitle: See Function
 redirect_from: /docs
-image: fas fa-magic
-excerpt: Leverage event-driven design constructs to automate repetitive task thus preventing errors and improving efficiency
+image: fas fa-user-secret
+excerpt: Cut through the noise! Store only the events and audit only the objects that you care about
 author_name: VEBA Team
 # author_avatar: https://placehold.it/64x64
-categories: ['repetitive']
+categories: ['audit']
 # Tag should match author to drive author pages
 tags: ['VEBA Team']
 ---
