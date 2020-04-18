@@ -1,20 +1,20 @@
 .day-night {
-    margin: -50px 0 0 0;
-    padding: 0 0 10px 0;
+    
     height: 50px;
     font-weight: bold;
 
-    .night-label{
-        opacity: 0.2;
-        height: 50px;
+    span {
         padding: 7.5px 0;
-        text-shadow: 1px 1px #fff;
+        height: 50px;
     }
 
     .day-label{
-        height: 50px;
-        padding: 7.5px 0;
         text-shadow: 1px 1px #000;
+    }
+
+    .night-label{
+        opacity: 0.2;
+        text-shadow: 1px 1px #fff;
     }
 
     .container {
@@ -42,10 +42,10 @@
     }
 
     .container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
     }
 }
