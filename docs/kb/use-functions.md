@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: use-functions
 title: vCenter Event Broker Appliance - Using Functions
 description: vCenter Event Broker Appliance - Using Functions
 permalink: /kb/use-functions

@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: contribute-start
 title: vCenter Event Broker Appliance - Getting Started
 description: Getting Started
 permalink: /kb/contribute-start

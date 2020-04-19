@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: contribute-functions
 title: vCenter Event Broker Appliance - Building Functions
 description: Building Functions
 permalink: /kb/contribute-functions

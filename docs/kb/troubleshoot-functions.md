@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: troubleshoot-functions
 title: vCenter Event Broker Function Troubleshooting
 description: Troubleshooting guide for general function issues
 permalink: /kb/troubleshoot-functions

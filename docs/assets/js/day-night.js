@@ -25,7 +25,7 @@ toNightAnimation
 	x: 1,
 	transformOrigin: '100% 50%',
 }, 0)
-.to('.day-label', {duration: duration * 2, ease: 'power2.inOut', opacity: 0.2}, 0)
+.to('.day-label', {duration: duration * 2, ease: 'power2.inOut', opacity: 0.6}, 0)
 .to('.night-label', {duration: duration * 2, ease: 'power2.inOut', opacity: 1}, 0)
 .set('#circle', {
 	// transformOrigin: '0% 50%',
@@ -41,11 +41,14 @@ toNightAnimation
 }, duration)
 .to('#day-content', {duration: duration * 0.5, opacity: 0.5}, duration * 1.5)
 .to('body', {backgroundColor: '#656363', color: 'black', duration: duration * 2}, 0)
+.to('#otto', 0.1, {display:'none', autoAlpha: 0})
+.to('#otto-pride', 0.1 , {autoAlpha: 1, display:'block'})
 .to('.hero-content h1', {color: 'black', duration: duration * 2}, 0)
 .to('.section', {color: 'black', duration: duration * 2}, 0)
-.to('#otto', {opacity: 0.5, duration: duration * 2}, 0)
-.to('#otto', 0.1, {display:'none'})
-.to('#otto-pride', 0.1 , {autoAlpha: 1, display:'block'})
+.to('.site-container', {backgroundColor: '#bbb', duration: duration * 2}, 0)
+.to('.promo-cards .section-content', {backgroundColor: '#bbb', duration: duration * 2}, 0)
+.to('footer', {backgroundColor: '#fff', duration: duration * 2}, 0)
+.to('.alternating-cards .row', {backgroundColor: '#fff', duration: duration * 2}, 0)
 
 let stars = Array.from(document.getElementsByClassName('star'));
 stars.map(star => gsap.to(star, {duration: 'random(0.4, 1.5)', repeat: -1, yoyo: true, opacity: 'random(0.2, 0.5)'}))

@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: contribute-eventrouter
 title: Building the Event Router
 description: Building the Event Router
 permalink: /kb/contribute-eventrouter

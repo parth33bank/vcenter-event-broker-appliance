@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: intro-functions
 title: VMware Event Broker Appliance - Intro to Functions
 description: VMware Event Broker Appliance - Intro to Functions
 permalink: /kb/functions

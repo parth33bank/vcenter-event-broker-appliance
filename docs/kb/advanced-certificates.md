@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: advanced-certificates
 title: vCenter Event Broker Appliance - Certificates
 description: Updating Certificates
 permalink: /kb/advanced-certificates

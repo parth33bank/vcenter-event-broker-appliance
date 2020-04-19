@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: install-openfaas
 title: vCenter Event Broker Appliance - OpenFaaS
 description: Deploying VMware Event Broker Appliance with OpenFaaS
 permalink: /kb/install-openfaas

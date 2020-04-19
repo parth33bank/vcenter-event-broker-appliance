@@ -36,8 +36,18 @@
       }
 
       li {
-        margin-left: 10px;
+        margin-left: 1px;
         font-size: $font-size-sm;
+      
+        &.selected {
+          font-weight: $font-weight-semibold;
+
+          svg {
+            color: #000000ad !important;
+          }
+        }
+
+        
       }
     }
     

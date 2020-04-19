@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: intro-event-router
 title: VMware Event Router - Introduction
 description: VMware Event Router Introduction
 permalink: /kb/event-router

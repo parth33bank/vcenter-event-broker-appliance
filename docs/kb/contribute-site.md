@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: contribute-site
 title: vCenter Event Broker Appliance - Docs
 description: Contributing Documentation/Website Updates
 permalink: /kb/contribute-site

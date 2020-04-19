@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: troubleshoot-appliance
 title: vCenter Event Broker Appliance Troubleshooting
 description: Troubleshooting guide for general appliance issues
 permalink: /kb/troubleshoot-appliance

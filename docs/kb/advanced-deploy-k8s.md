@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: advanced-deploy-k8s
 title: vCenter Event Broker Appliance - Event Router Standalone
 description: Standalone Deployment of Event Router
 permalink: /kb/advanced-deploy-k8s

@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: use-vcenter-events
 title: vCenter Event Broker Appliance - vCenter Events
 description: vCenter Event Broker Appliance - vCenter Events
 permalink: /kb/vcenter-events

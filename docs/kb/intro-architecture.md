@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: intro-architecture
 title: VMware Event Broker Appliance - Architecture
 description: vCenter Event Broker Appliance Architecture
 permalink: /kb/architecture

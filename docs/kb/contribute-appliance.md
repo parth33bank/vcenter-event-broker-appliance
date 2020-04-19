@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: contribute-appliance
 title: Building the vCenter Event Broker Appliance 
 description: Building the vCenter Event Broker Appliance
 permalink: /kb/contribute-appliance

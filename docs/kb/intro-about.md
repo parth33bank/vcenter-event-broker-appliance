@@ -1,5 +1,6 @@
 ---
 layout: docs
+toc_id: intro-about
 title: vCenter Event Broker Appliance - Introduction
 description: vCenter Event Broker Appliance - Introduction
 permalink: /kb
