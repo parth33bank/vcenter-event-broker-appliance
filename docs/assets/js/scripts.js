@@ -11,4 +11,9 @@
   $('nav#toc-nav ul li.' + $('div.documentation-container').attr('id')).addClass('selected');
 
   //$('nav#toc-nav ul li.' + $('div.documentation-container').attr('id') + ' span').html('-');
+
+  $('#darkmodeinput').click(function () {
+    $('div#arc').toggleClass('flicker');
+    $('div#reactor').toggleClass('flicker');
+  });
 })();

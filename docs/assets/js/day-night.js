@@ -56,7 +56,7 @@ gsap.to('.clouds-big', {duration: 15, repeat: -1, x: -74, ease: 'linear'})
 gsap.to('.clouds-medium', {duration: 20, repeat: -1, x: -65, ease: 'linear'})
 gsap.to('.clouds-small', {duration: 25, repeat: -1, x: -71, ease: 'linear'})
 
-let switchToggle = document.getElementById('input');
+let switchToggle = document.getElementById('darkmodeinput');
 switchToggle.addEventListener('change', () => toggle())
 
 let toggle = () => 

@@ -67,8 +67,11 @@ secondary_ctas:
         </div>
         <div class="col-md-5">
           <div class="hero-veba-mascot">
+            {% include arc-reactor.html%}
+            
             <img id="otto" src="{{site.banner_main | relative_url}}"/>
             <img id="otto-pride" src="{{site.banner_alt | relative_url}}" style="display:none; opacity:0.5;"/>
+            
           </div>
         </div>
       </div>
@@ -165,13 +168,13 @@ secondary_ctas:
 <div class="section pt-3">
   <div class="section-content promo-cards">
     <div class="row">
-      <h2>Popular Usecases</h2>
+      <h2>#VEBA Use Cases</h2>
     </div>
     {% assign limit = 6 %}
     {% include usecase-posts.html %}
     <div class="row pt-4">
       <div class="col text-center">
-        <a href="{{ '/kb#users-and-use-cases' | relative_url}}" class="btn btn-secondary btn-sm">See All Usecases</a>
+        <a href="{{ '/kb#users-and-use-cases' | relative_url}}" class="btn btn-secondary btn-sm">See All Use cases</a>
       </div>
     </div>
   </div>
