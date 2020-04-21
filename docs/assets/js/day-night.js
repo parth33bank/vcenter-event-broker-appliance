@@ -63,11 +63,25 @@ let toggle = () =>
 {
 	isDay = switchToggle.checked == true;
 	if (isDay) {
-    	toNightAnimation.reverse();
+		toNightAnimation.reverse();
+		localStorage.setItem("darkmode",'day');
+        $('div#arc').removeClass('flicker');
+        $('div#reactor').removeClass('flicker');
 	} else {
-    	toNightAnimation.play();
+		toNightAnimation.play();
+		localStorage.setItem("darkmode",'night');
+        $('div#arc').addClass('flicker');
+        $('div#reactor').addClass('flicker');
 	}
 }
 
 toNightAnimation.reverse();
 toNightAnimation.pause();
+
+if (localStorage.getItem("darkmode") === 'night'){
+	isDay = false;
+	switchToggle.checked = false;
+	toNightAnimation.play();
+	$('div#arc').addClass('flicker');
+	$('div#reactor').addClass('flicker');
+}

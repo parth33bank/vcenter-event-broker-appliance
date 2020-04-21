@@ -2,9 +2,43 @@
 layout: page
 id: community
 title: Community
-description: Update this
+description: Community Resources
 permalink: /community
+links:
+- title: Twitter
+  image: /assets/img/twitter.svg
+  items:
+  - description: "Follow us at: "
+    url: "https://twitter.com/vEventBroker"
+    label: "@vEventBroker"
+- title: Slack
+  image: /assets/img/slack.svg
+  items: 
+  - description: "Join us on: "
+    url: "https://vmwarecode.slack.com/archives/CQLT9B5AA"
+    label: Slack
 ---
+
+# Join the movement
+
+<div class="container pb-3">
+  <div class="row">
+    {% for link in page.links %}
+    <div class="col community-item text-center shadow-sm m-2 p-2">
+      <div class="icon">
+        <a href="{{ link.url }}" target="_blank"><img src="{{ link.image | relative_url }}" alt="{{ link.title}}"></a>  
+      </div>
+      <h2 class="mt-2">{{link.title}}</h2>
+      {% for item in link.items %}
+      <div class="link-description">
+        <p>{{ item.description }} <a href="{{ item.url }}" target="_blank">{{ item.label }}</a></p>
+        <p>{{ item.notes }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 # Contributing
 
