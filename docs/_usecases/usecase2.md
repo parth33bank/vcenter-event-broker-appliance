@@ -3,7 +3,7 @@ title: Automation
 #subtitle: See Function
 redirect_from: /docs
 image: fas fa-magic
-excerpt: Leverage event-driven design constructs to automate repetitive task thus preventing errors and improving efficiency
+excerpt: Leverage event-driven Functions to automate repetitive task and improve efficiency
 author_name: VEBA Team
 # author_avatar: https://placehold.it/64x64
 categories: ['repetitive']

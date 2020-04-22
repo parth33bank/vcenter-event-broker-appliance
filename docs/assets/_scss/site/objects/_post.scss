@@ -175,3 +175,38 @@ th, td {
 .tweetfeed {
   padding-left: 0em !important;
 }
+
+.faqs {
+  svg {
+    padding-top: 3px;
+  }
+
+  p {
+    flex: 1;
+    margin: 0px;
+    padding: 0px 5px;
+  }
+}
+
+.examples {
+  
+  h2 {
+    margin: 1rem 0rem;
+  }
+
+  h3 {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+    margin: 1rem 0rem;
+  }
+
+  .language {
+    vertical-align: middle;
+    margin: auto;
+    text-align: center;
+
+    img {
+      height: 50px;
+    }
+  }
+}

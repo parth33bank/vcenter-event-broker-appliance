@@ -18,6 +18,7 @@ twitter:
 vm_logo: vm-logo.png
 gh_repo: https://github.com/vmware-samples/vcenter-event-broker-appliance
 repository: pksrc/vcenter-event-broker-appliance
+google_analytics: UA-164266140-1
 
 hero:
   background-color: cornflower-blue
