@@ -15,7 +15,7 @@ The vCenter Event Broker Appliance uses OpenFaaS as a Function-as-a-Service (Faa
 - [Your first OpenFaaS Function with Python](https://docs.openfaas.com/tutorials/first-python-function/)
 - [OpenFaaS Workshop](https://docs.openfaas.com/tutorials/workshop/)
 
-Advanced users who directly want to jump into VMware vSphere-related function code might want to check out the examples we provide in this repository [here](/examples).
+Advanced users who directly want to jump into VMware vSphere-related function code might want to check out the examples we provide in this repository [here](/vcenter-event-broker-appliance/examples).
 
 ## Naming and Version Control
 
