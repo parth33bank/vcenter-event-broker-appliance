@@ -8,6 +8,82 @@ permalink: /kb/contribute-functions
 
 # Writing your own functions
 
+## Step By Step Instructions
+
+### Set up your local environment
+
+* Install faas-netes. There are many ways to go about this installation. 
+  * One way is to follow the instructions at [Faas-Netes](https://docs.openfaas.com/deployment/kubernetes/).
+  * Another way is to follow these steps:
+    1. Download and install KinD to get your k8s cluster. Be sure to install kubectl as well per the instructions at [kind quick start](https://kind.sigs.k8s.io/docs/user/quick-start/).
+    2. Install faas-netes by applying k8s yaml files by following [these instructions](https://docs.openfaas.com/deployment/kubernetes/#c-deploy-using-kubectl-and-plain-yaml-for-development-only). Once you log in to the faas-cli, you can move on.
+
+### (Optional) Build and Execute Vmware-Event-Router on Local Machine
+
+* ensure config_openfaas.json is correct. Most updated are the vccenter URL/address, the openfaas password
+
+  ```bash
+  export GO111MODULES=on
+  go mod tidy # in the folder that the FAQ.md and CONTRIBUTING.md are in.
+  go build -o dist/vmware-event-router cmd/main.go
+  ./dist/vc-event-router -config config_openfaas.json -verbose
+  ```
+
+### Write Your FaaS Function
+
+* Go to the directory where you want to build your new function
+* Set up the secret config file
+
+  ```toml
+  # vcconfig.toml contents
+  # replace with your own values and use a dedicated user/service account with permissions to tag VMs if possible
+  [vcenter]
+  server = "VCENTER_FQDN/IP"
+  user = "tagging-admin@vsphere.local"
+  password = "DontUseThisPassword"
+  
+  [tag]
+  urn = "urn:vmomi:InventoryServiceTag:019c0a9e-0672-48f5-ac2a-e394669e2916:GLOBAL" # replace the actual urn of the tag
+  action = "attach" # tagging action to perform, i.e. attach or detach tag
+  ```
+
+* Save the secret with `faas-cli secret create vcconfig --from-file=vcconfig.toml`
+* Grab the desired language template (there are multiple ways)
+  * The first way is with `faas template pull` and see it in `faas new --list`.
+  * The second way is to look through the OpenFaas-Incubator, for example, [openfaas-incubator](https://github.com/openfaas-incubator/golang-http-template.git). If found there, retrieve it with `faas template pull https://github.com/openfaas-incubator/golang-http-template`.
+  * The third way is `faas template store pull golang-http`
+  * An alternative to templates is not to use them, and make your own Dockerfile. Optionally, after doing that, you can make your own template.
+* Create scaffold for the function: `faas-cli new --lang golang-http faas-hello-world --prefix="fgold"`. The prefix is your docker hub user name. Of course, use your own language after `--lang`.
+* Make changes inside scaffold
+  * A directory called `faas-hello-world` should be created and within it, should be a file called `handler.go`, except the extension should be appropriate for your choice of language. Edit that file to make a new function.
+  * Open and edit the `faas-hello-world.yml` provided. Change provider > gateway and functions >annotations > topic as per your environment/needs. Here is an example for Go:
+
+  ```go
+  provider:
+    name: openfaas
+    gateway: http://127.0.0.1:8080 # replace with your vCenter Event Broker Appliance environment
+  functions:
+    faas-hello-world:
+      lang: golang-http
+      handler: ./faas-hello-world
+      image: fgold/faas-hello-world:latest
+      environment:
+        write_debug: true
+        read_debug: true
+      secrets:
+        - vcconfig # leave as is unless you changed the name during the creation of the vCenter credentials secrets above
+      annotations:
+        topic: vm.powered.on # or drs.vm.powered.on in a DRS-enabled cluster
+  ```
+
+* Build the faas function with `faas-cli up -f faas-hello-world.yml`.
+  * For the Golang-http template, Build the faas function with `faas-cli up -f faas-hello-world.yml --build-arg GO111MODULE=on`
+
+### Run the Function in VEBA
+
+* Run `faas-cli deploy -f hello-world.yml --tls-no-verify` to deploy the function. It doesn't have to be run on the local machine; it can be run on the machine that is hosting the VEBA appliance.
+* Try to trigger the function with a vCenter event.
+
 ## Coding - Best Practices
 
 Compared to writing repetitive boilerplate logic to handle vCenter events, the vCenter Event Broker Appliance powered by OpenFaaS makes it remarkable easy to consume and process events with minimal code required.
@@ -162,79 +238,3 @@ def handle(req):
 If `store_event` fails someone troubleshooting your function will have a hard time. Either rephrase the `print` statement to "storing ..." or, better, put it after the function call. Also, consider using a structured logging library that supports consistently formatted and parsable output.
 
 > **Note:** Avoid logging sensitive data, such as usernames, passwords, account information, etc.
-
-## Step By Step Instructions for Writing Your Own Function
-
-### Set up your local environment
-
-* Install faas-netes. There are many ways to go about this installation. 
-  * One way is to follow the instructions at [Faas-Netes](https://docs.openfaas.com/deployment/kubernetes/).
-  * Another way is to follow these steps:
-    1. Download and install KinD to get your k8s cluster. Be sure to install kubectl as well per the instructions at [kind quick start](https://kind.sigs.k8s.io/docs/user/quick-start/).
-    2. Install faas-netes by applying k8s yaml files by following [these instructions](https://docs.openfaas.com/deployment/kubernetes/#c-deploy-using-kubectl-and-plain-yaml-for-development-only). Once you log in to the faas-cli, you can move on.
-
-### (Optional) Build and Execute Vmware-Event-Router on Local Machine
-
-* ensure config_openfaas.json is correct. Most updated are the vccenter URL/address, the openfaas password
-
-  ```bash
-  export GO111MODULES=on
-  go mod tidy # in the folder that the FAQ.md and CONTRIBUTING.md are in.
-  go build -o dist/vmware-event-router cmd/main.go
-  ./dist/vc-event-router -config config_openfaas.json -verbose
-  ```
-
-### Write Your FaaS Function
-
-* Go to the directory where you want to build your new function
-* Set up the secret config file
-
-  ```toml
-  # vcconfig.toml contents
-  # replace with your own values and use a dedicated user/service account with permissions to tag VMs if possible
-  [vcenter]
-  server = "VCENTER_FQDN/IP"
-  user = "tagging-admin@vsphere.local"
-  password = "DontUseThisPassword"
-  
-  [tag]
-  urn = "urn:vmomi:InventoryServiceTag:019c0a9e-0672-48f5-ac2a-e394669e2916:GLOBAL" # replace the actual urn of the tag
-  action = "attach" # tagging action to perform, i.e. attach or detach tag
-  ```
-
-* Save the secret with `faas-cli secret create vcconfig --from-file=vcconfig.toml`
-* Grab the desired language template (there are multiple ways)
-  * The first way is with `faas template pull` and see it in `faas new --list`.
-  * The second way is to look through the OpenFaas-Incubator, for example, [openfaas-incubator](https://github.com/openfaas-incubator/golang-http-template.git). If found there, retrieve it with `faas template pull https://github.com/openfaas-incubator/golang-http-template`.
-  * The third way is `faas template store pull golang-http`
-  * An alternative to templates is not to use them, and make your own Dockerfile. Optionally, after doing that, you can make your own template.
-* Create scaffold for the function: `faas-cli new --lang golang-http faas-hello-world --prefix="fgold"`. The prefix is your docker hub user name. Of course, use your own language after `--lang`.
-* Make changes inside scaffold
-  * A directory called `faas-hello-world` should be created and within it, should be a file called `handler.go`, except the extension should be appropriate for your choice of language. Edit that file to make a new function.
-  * Open and edit the `faas-hello-world.yml` provided. Change provider > gateway and functions >annotations > topic as per your environment/needs. Here is an example for Go:
-
-  ```go
-  provider:
-    name: openfaas
-    gateway: http://127.0.0.1:8080 # replace with your vCenter Event Broker Appliance environment
-  functions:
-    faas-hello-world:
-      lang: golang-http
-      handler: ./faas-hello-world
-      image: fgold/faas-hello-world:latest
-      environment:
-        write_debug: true
-        read_debug: true
-      secrets:
-        - vcconfig # leave as is unless you changed the name during the creation of the vCenter credentials secrets above
-      annotations:
-        topic: vm.powered.on # or drs.vm.powered.on in a DRS-enabled cluster
-  ```
-
-* Build the faas function with `faas-cli up -f faas-hello-world.yml`.
-  * For the Golang-http template, Build the faas function with `faas-cli up -f faas-hello-world.yml --build-arg GO111MODULE=on`
-
-### Run the Function in VEBA
-
-* Run `faas-cli deploy -f hello-world.yml --tls-no-verify` to deploy the function. It doesn't have to be run on the local machine; it can be run on the machine that is hosting the VEBA appliance.
-* Try to trigger the function with a vCenter event.
