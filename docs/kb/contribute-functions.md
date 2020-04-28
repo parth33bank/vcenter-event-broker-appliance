@@ -10,27 +10,7 @@ permalink: /kb/contribute-functions
 
 ## Step By Step Instructions
 
-### Set up your local environment
-
-* Install faas-netes. There are many ways to go about this installation. 
-  * One way is to follow the instructions at [Faas-Netes](https://docs.openfaas.com/deployment/kubernetes/).
-  * Another way is to follow these steps:
-    1. Download and install KinD to get your k8s cluster. Be sure to install kubectl as well per the instructions at [kind quick start](https://kind.sigs.k8s.io/docs/user/quick-start/).
-    2. Install faas-netes by applying k8s yaml files by following [these instructions](https://docs.openfaas.com/deployment/kubernetes/#c-deploy-using-kubectl-and-plain-yaml-for-development-only). Once you log in to the faas-cli, you can move on.
-
-### (Optional) Build and Execute Vmware-Event-Router on Local Machine
-
-* ensure config_openfaas.json is correct. Most updated are the vccenter URL/address, the openfaas password
-
-  ```bash
-  export GO111MODULES=on
-  go mod tidy # in the folder that the FAQ.md and CONTRIBUTING.md are in.
-  go build -o dist/vmware-event-router cmd/main.go
-  ./dist/vc-event-router -config config_openfaas.json -verbose
-  ```
-
-### Write Your FaaS Function
-
+* The following steps assume VEBA has been installed and is running.
 * Go to the directory where you want to build your new function
 * Set up the secret config file
 
@@ -51,9 +31,9 @@ permalink: /kb/contribute-functions
 * Grab the desired language template (there are multiple ways)
   * The first way is with `faas template pull` and see it in `faas new --list`.
   * The second way is to look through the OpenFaas-Incubator, for example, [openfaas-incubator](https://github.com/openfaas-incubator/golang-http-template.git). If found there, retrieve it with `faas template pull https://github.com/openfaas-incubator/golang-http-template`.
-  * The third way is `faas template store pull golang-http`
+  * The third way is `faas template store pull <language-template>`
   * An alternative to templates is not to use them, and make your own Dockerfile. Optionally, after doing that, you can make your own template.
-* Create scaffold for the function: `faas-cli new --lang golang-http faas-hello-world --prefix="fgold"`. The prefix is your docker hub user name. Of course, use your own language after `--lang`.
+* Create scaffold for the function: `faas-cli new --lang <language template> faas-hello-world --prefix="<docker hub user name>"`.
 * Make changes inside scaffold
   * A directory called `faas-hello-world` should be created and within it, should be a file called `handler.go`, except the extension should be appropriate for your choice of language. Edit that file to make a new function.
   * Open and edit the `faas-hello-world.yml` provided. Change provider > gateway and functions >annotations > topic as per your environment/needs. Here is an example for Go:
