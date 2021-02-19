@@ -73,6 +73,9 @@ toc:
       - page: Monitoring VEBA with vROps
         id: site-resources
         external_url: https://rguske.github.io/post/monitoring-the-vmware-event-broker-appliance-with-vrealize-operations-manager/
+      - page: Sending VEBA Logs to vRLI
+        id: site-resources
+        external_url: https://rguske.github.io/post/leveraging-fluent-bit-on-tkg-to-send-veba-logs-to-vrli/
 
   - title: Troubleshoot
     subfolderitems:

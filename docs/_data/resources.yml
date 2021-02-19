@@ -7,83 +7,98 @@ linklimit: 7  #Avoid high number to reduce vertical scroll
 videolimit: 3 #Optimal number, DONT CHANGE
 
 links:
-  - title: VMware Event Broker (aka VEBA) on Kubernetes – First steps
+  - title: HashiCorp Vault vSphere Authentication with VMware Event Broker Appliance (VEBA)
     display: true
     details:
       url_text: blog post
-      external_url: https://vuptime.io/2020/11/02/vmware-event-broker-on-k8s-first-steps/
-      external_image: https://vuptime.io/images/veba-first-steps/veba_otto_the_orca_md.png
-      author_name: Ludovic Rivallain
-      excerpt: In the following post, we will discover how to deploy the VMware Event Broker services (VEBA) within an existing Kubernetes (K8S) cluster and use it to add/edit custom attributes information to virtual machines...
+      external_url: https://www.greenreedtech.com/hashicorp-vault-vsphere-authentication-with-vmware-event-broker-appliance-veba/
+      external_image: https://www.greenreedtech.com/wp-content/uploads/2021/02/Screen-Shot-2021-02-16-at-9.48.42-AM-800x445.png
+      author_name: Martez Reed
+      excerpt: this blog post is to showcase how the solution can be used with VEBA to simplify the authentication of VMware vSphere workloads to HashiCorp Vault
 
-  - title: Spin up a local VEBA environment with KinD and vCenter simulator
+  - title: Creating a VMware Event Broker Appliance (VEBA) Golang Function
     display: true
     details:
       url_text: blog post
-      external_url: https://rguske.github.io/post/spin-up-a-local-veba-environment-with-kind-and-vcenter-simulator/
-      external_image: https://rguske.github.io/img/vebakindvcsim_cover.jpg
-      author_name: Robert Guske
-      excerpt: The lightweight alternative would be, to e.g. leverage VMware’s Fusion or Workstation to spin up a Kubernetes cluster locally and to deploy the Event Router, OpenFaaS as well as your function(s) on top of it. Asking yourself now- And what about the vCenter Server? Good question...
+      external_url: https://www.greenreedtech.com/creating-a-vmware-event-broker-appliance-veba-golang-function/
+      external_image: https://www.greenreedtech.com/wp-content/uploads/2021/02/VEBA-Golang-OpenFaas-Function-2-800x445.png
+      author_name: Martez Reed
+      excerpt:  In this blog post we’ll take a look at how to quickly get started with developing a Golang function for the VMware Event Broker Appliance (VEBA)...
 
-  - title: Self Service for your DataCenter + Auto Remediation
+  - title: VEBA + Knative + k3s on ESXi-Arm
     display: true
     details: 
       url_text: blog post
-      external_url: https://bit.ly/vmselfservepk 
-      external_image: https://miro.medium.com/max/1506/1*l2CTz_sUAjRmWugTV_952A.png
-      author_name: Partheeban Kandasamy (PK) & Frankie Gold
-      excerpt: For the Command/User driven use case, What if IT enables Business Stakeholders to interact with vSphere SDDC through a Slack command...For the event-driven use case, what if certain crises are handled automatically thus increasing operational efficiency...
-
-  - title: Integrating VMware Cloud Notification Gateway with VMware Event Broker Appliance
-    display: true
-    details: 
-      url_text: blog post
-      external_url: https://www.virtuallyghetto.com/2020/07/integrating-vmware-cloud-notification-gateway-with-vmware-event-broker-appliance-veba.html
-      external_image: https://i2.wp.com/www.virtuallyghetto.com/wp-content/uploads/2020/07/vmware-cloud-notification-to-veba-diagram.png?ssl=1
+      external_url: https://www.virtuallyghetto.com/2021/01/veba-knative-k3s-on-esxi-arm.html
+      external_image: https://pbs.twimg.com/media/EsgfZC-UUAAd4wS?format=jpg&name=4096x4096
       author_name: William Lam
-      excerpt: advantage of the NGW webhook capability but instead of forwarding the NGW notification to a cloud service that supports an incoming webhook, we are sending it to VEBA for processing. Once the notification has been received by VEBA, customers can apply...
+      excerpt: This past weekend, I was finally successful in setting up our VMware Event Router for Arm using the Knative processor on a k3s cluster using ESXi-Arm running on a Raspberry Pi 4b 8GB model!
 
-  - title: Bursting to the Cloud with VEBA, AWS Lambda & VMC on AWS
+  - title: Leveraging Fluent Bit on Tanzu Kubernetes Grid to send VEBA logs to vRealize Log Insight
     display: true
     details: 
       url_text: blog post
-      external_url: https://nicovibert.com/2020/05/20/cloudbursting-vmwarecloud-veba-lambda-eventbridge/ 
-      external_image: https://nicovmc.files.wordpress.com/2020/05/screenshot-2020-05-20-at-12.17.07.png?w=1024
-      author_name: Nico Vibert
-      excerpt: We need an engine to trigger an action based on an event. For VMware events, the best way to do that would be to leverage the VMware Event Broker Appliance (VEBA). I will leverage EventBridge as it integrates easily with AWS Lambda...
-
-  - title: Deploying the VMware Event Broker Appliance (VEBA) using Cloud Assembly
-    display: true
-    details: 
-      url_text: blog post
-      external_url: https://blogs.vmware.com/services-education-insights/2020/07/deploying-the-vmware-event-broker-appliance-veba-using-cloud-assembly.html
-      external_image: https://blogs.vmware.com/services-education-insights/files/2020/07/ovfScreenshot.png
-      author_name: VMware Blogs - James Wirth
-      excerpt: We need an engine to trigger an action based on an event. For VMware events, the best way to do that would be to leverage the VMware Event Broker Appliance (VEBA). I will leverage EventBridge as it integrates easily with AWS Lambda...
-
-  - title: Using the VEBA to Automatically Expand a Pure Storage FlashArray Datastore
-    display: true
-    details: 
-      url_text: blog post
-      external_url: https://davidstamen.com/using-veba-to-expand-pure-datastore/
-      external_image: https://davidstamen.com/images/veba05.png
-      author_name: David Stamen
-      excerpt: can we automatically expand a datastore when it gets full? The answer is yes! With all of the integrations with automation platformsm, Pure Storage Arrays have many options. This blog will cover how to handle this with the VMware Event Broker Appliance (VEBA)...
-
-  - title: VMware Event Broker Appliance - vSphere HA Event Notification Function
-    display: true
-    details: 
-      url_text: blog post
-      external_url: https://rguske.github.io/post/vsphere-ha-event-notification-function/
-      external_image: https://rguske.github.io/img/posts/202006_harestartfunction/CapturFiles-20200701_022720.jpg
+      external_url: https://rguske.github.io/post/leveraging-fluent-bit-on-tkg-to-send-veba-logs-to-vrli/
+      external_image: https://rguske.github.io/img/veba_fluentbit_vrli_cover.jpg
       author_name: Robert Guske
-      excerpt: to send out a notification via Email after a vSphere HA event occurred. This Email will have the affected host mentioned as well as all affected VMs which has been restarted through vSphere HA. The problem was, that the execution of the script was a manual task every time a ESXi host outage took place…at least until he became aware of VEBA...
+      excerpt: ...let VEBA sending logs to our log analysis solutions VMware vRealize Log Insight or vRealize Log Insight Cloud.
+
+  - title: Run Argo workflow from a VEBA event through OpenFaaS
+    display: true
+    details: 
+      url_text: blog post
+      external_url: https://vuptime.io/2021/01/06/run-arg-workflows-from-veba-events/
+      external_image: https://vuptime.io/images/argo/veba-to-argo-fn.png
+      author_name: Ludovic Rivallain
+      excerpt: In the following post, I will demonstrate how it is possible to forward VEBA events to a very powerful Workflow engine named Argo...
+
+  - title: Enabling Self Service for your DataCenter — Part I
+    display: true
+    details: 
+      url_text: blog post
+      external_url: https://cloudtekki.com/post/self-service-for-your-datacenter/
+      external_image: https://miro.medium.com/max/3012/1*l2CTz_sUAjRmWugTV_952A.png
+      author_name: Partheeban Kandasamy
+      excerpt: ... leverage the event-driven capabilities as well as incorporate the command-driven aspect of a deployed function to deliver a true self-service experience for Business Units.
+
+  - title: VMware Event Broker 0.5.0 (aka VEBA) on Kubernetes – First steps
+    display: true
+    details: 
+      url_text: blog post
+      external_url: https://vuptime.io/2020/12/17/vmware-event-broker-0.5.0-on-k8s-first-steps/
+      external_image: https://vuptime.io/images/veba-first-steps/veba-architecture-v0.5.0.png
+      author_name: Ludovic Rivallain
+      excerpt: In the following post, we will (re)discover how to deploy the VMware Event Broker services (VEBA) within an existing Kubernetes (K8S) cluster...
+
+  - title: VMware Event Broker Appliance (VEBA) v0.5.0
+    display: true
+    details: 
+      url_text: blog post
+      external_url: https://www.virtuallyghetto.com/2020/12/vcenter-event-broker-appliance-veba-v0-5-0.html
+      external_image: https://i1.wp.com/www.virtuallyghetto.com/wp-content/uploads/2020/12/knative-processor.png?w=1098&ssl=1
+      author_name: William Lam
+      excerpt: Just in time for the holidays, the VMware Event Broker Appliance (VEBA) team is excited to announce our latest v0.5.0 release...
   
 #
 # All other links with the below details populated.
 # use the flag display: true/false to control if the link needs to show up on the site. Videos show up in the same order as below
 #
 otherlinks:
+  - title: Spin up a local VEBA environment with KinD and vCenter simulator
+    display: true
+    url: https://rguske.github.io/post/spin-up-a-local-veba-environment-with-kind-and-vcenter-simulator/
+  - title: Integrating VMware Cloud Notification Gateway with VMware Event Broker Appliance
+    display: true
+    url: https://www.virtuallyghetto.com/2020/07/integrating-vmware-cloud-notification-gateway-with-vmware-event-broker-appliance-veba.html
+  - title: Bursting to the Cloud with VEBA, AWS Lambda & VMC on AWS
+    display: true
+    url: https://nicovibert.com/2020/05/20/cloudbursting-vmwarecloud-veba-lambda-eventbridge/
+  - title: Deploying the VMware Event Broker Appliance (VEBA) using Cloud Assembly
+    display: true
+    url: https://blogs.vmware.com/services-education-insights/2020/07/deploying-the-vmware-event-broker-appliance-veba-using-cloud-assembly.html
+  - title: Using the VEBA to Automatically Expand a Pure Storage FlashArray Datastore
+    display: true
+    url: https://davidstamen.com/using-veba-to-expand-pure-datastore/
   - title: VMworld 2020 - VEBA and the Power of Event-Driven Automation – Reloaded
     display: true
     url: https://www.vmworld.com/en/video-library/video-landing.html?sessionid=1586353214997001Abo2
